@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JSD: Class 08</title>
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/general-assembly.css" id="theme">
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+  <link rel="stylesheet" href="css/zenburn.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+ <!--      <section class="hero condensed">
+        <h1>Hello</h1>
+        <div class="opening-instructions">
+          <p>1) Please download <a href="../materials/class11.zip" target="_blank">Class 11 Starter Code</a></p>
+          <p>2) Move the following into <code class="code">class-work</code>:</p>
+          <div class="pad-left-lg">
+            <p>&#149; <code class="code">geo_locator</code></p>
+            <p>&#149; <code class="code">functions_lab</code></p>
+          </div>
+        </div>
+      </section> -->
+
+
+      <section class="hero condensed">
+        <h1>Class <span class="red">#08</span></h1>
+        <h1 class="lesson-title">Intro To React</h1>
+      </section>
+
+
+      <!-- AGENDA -->
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Agenda</div>
+        <p>&#149; Final Project Review</p>
+<!--         <p>&#149; Questions/Feedback</p> -->
+        <p>&#149; jQuery Homework Review</p>
+        <p>&#149; Working with ES6 Classes (aka ES5 Constructor Functions)</p>
+                <p>&#149; Setting up CodePen for a React projct</p>
+                        <p>&#149; Rendering Elements using JSX</p>
+                                <p>&#149; Creating Components</p>
+
+<!--         <p>&#149; Incorporating React into a projct</p>
+        <p>&#149; Rendering Elements and JSX</p>
+        <p>&#149; Props and State</p> -->
+      </section> 
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Final Project Review</div>
+      <p>&#149; Final Project:</p>
+      <div class="pad-left-lg">
+        <p class="fragment">&rArr; Due on Wed, Sep 26th</p>
+        <p class="fragment">&rArr; First deliverable due Mon, Aug 27th</p>
+        <p  class="fragment">&rArr; Use the <a target="_" href="https://github.com/jkeohan/jsd327-class-repo/blob/master/final-project-worksheet/readme.md">Project Worksheet</a> to keep track of your project.</p>
+      </div>
+    </section>
+
+<!-- 
+      <section data-background="#FFF" class="text-left">
+        <div class="heading" id="questions">Questions/Feedback</div>
+
+        <div class="text-smaller">
+          <p>
+            <b>Q:Any good suggestions for APIs we should start looking at for Final Projects? Are there any specific requirements for the final Project? </b>
+          </p>
+          <p class="fragment">
+            A: <code class="code">I've added some linkks to lessons section</code>
+          </p>
+          <p class="fragment">
+            <b>Q: Can you explain more on jsonObject?</b>
+          </p>
+          <p class="fragment">
+            A: <code class="code">We will continue work with JSON as we start making additional API calls in upcoming lessons. </code>
+          </p>
+          </p>
+        </div>
+      </section>
+ -->
+
+
+      <section class="title" id="">
+        <h1>jQuery Homework Review</h1>
+      </section>
+
+
+    <section class="title" id="">
+        <h1>Working With ES6 Classes</h1>
+      </section>
+
+
+
+
+    <section data-background="#FFF" class="text-left">
+        <div class="heading">LAB: 30min</div>
+        <div>
+        <p><a target=="_" href="https://repl.it/@jkeohan/JSD-ES6-Classes-UserAdmin-Starter">ES6 Classes - User/Admin - Starter</a></p>
+<!--         <div class="pad-left-lg">
+            <p>1> Create an App Component </p>
+            <p>2) Render all the existing HTML within the App Component</p>
+          </div> -->
+      </section> 
+
+
+      <section class="title" id="">
+        <h1>Intro To React</h1>
+      </section>
+
+
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Just How Popular is React?</div>
+        <div>
+        <p>&#149 According to Stack Overflow's <a href="https://insights.stackoverflow.com/survey/2016#technology-trending-tech-on-stack-overflow">Trending Tech 2016 Survey</a> React has grown over 300%: </p>
+        <p>&#149 It's also 2nd in <a href="https://insights.stackoverflow.com/survey/2016#top-paying-tech-per-occupation">Top Paying Tech per Occupation</a></p>
+      </section> 
+ -->
+
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading"> What is ReactJS?</div>
+        <div>
+        <p>&#149 React is a library\framework used to craft modern day UI and create views for the front-end. </p>
+        <p>&#149 By modeling small compatible components that focus on just rendering a view, we as developers can move business logic out of the DOM, and therefore improve our app's performance, maintainability, modularity and readability.</p>
+      </section> 
+
+
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Installing Chrome "React" Extensions & Investigate Sites</div>
+        <div>
+        <p>Chrome provides a few extensions that facilitate working with React. Let's take a moment and install the following extensions:</p>
+        <p><a target="_" href="https://chrome.google.com/webstore/detail/react-detector/jaaklebbenondhkanegppccanebkdjlh?hl=en-US">React-Detector</a></p>
+        <p><a target="_" href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-US">React Developer Tools</a></p>
+      </section> 
+
+    <section data-background="#FFF" class="text-left">
+        <div class="heading">React Docs</div>
+        <div>
+        <p><a target="_" href="https://reactjs.org/docs/hello-world.html">React Docs</a> are fantastic so we will use them as our reference.</p>
+      </section> 
+
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Code Along/Demo</div>
+        <div>
+        <p>Let's work through Color Switcher in jQuery and then we will refactor <a target=="_" href="https://codepen.io/jkeohan/pen/EpJxpp">Color Switcher</a> and see how react works.</p>
+      </section> 
+
+
+    <section data-background="#FFF" class="text-left">
+        <div class="heading">LAB: 30min</div>
+        <div>
+        <p>Refactor  <a target=="_" href="https://codepen.io/jkeohan/pen/GdywXx?editors=1010">TODO List</a></p>
+        <div class="pad-left-lg">
+            <p>1) Create an App Component </p>
+            <p>2) Render all the existing HTML within the App Component</p>
+          </div>
+      </section> 
+
+
+
+
+      <!-- FEEDBACK -->
+<!--       <section class="title">
+        <h1>Mid-Course Feedback</h1>
+      </section> -->
+
+  <!--     <section data-background="#FFF" class="text-left">
+        <div class="heading">Mid-Course Feedback</div>
+
+        <p>1) Depth of topic exploration</p>
+        <p class="fragment">2) Pace of the program</p>
+        <p class="fragment">3) Collaborate with peers</p>
+        <p class="fragment">4) "The men's bathroom is always out of hand napkins."</p>
+      </section> -->
+
+      <!-- API REVIEW -->
+
+      <section class="center">
+        <h1>Exit Tickets!</h1>
+      </section>
+   </div>
+  </div>
+
+  <script src="js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="../js/analytics.js"></script>
+</body>
+</html>

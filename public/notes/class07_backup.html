@@ -12,7 +12,7 @@
 <body>
   <div class="reveal">
     <div class="slides">
-      <section class="hero condensed">
+<!--       <section class="hero condensed">
         <h1>Hello</h1>
         <div class="opening-instructions">
           <p>1) Please download <a href="../materials/class08.zip" target="_blank">Class 08 Starter Code</a></p>
@@ -23,22 +23,28 @@
           </div>
           <p>3) Solution from last week is included</p>
         </div>
-      </section>
+      </section> -->
 
       <section class="hero condensed">
-        <h1>Class <span class="red">#08</span></h1>
-        <h1>03/05/2018</h1>
+        <h1>Class <span class="red">#07</span></h1>
+<!--         <h1>03/05/2018</h1> -->
         <h1 class="lesson-title">Document Object Model (DOM) and jQuery</h1>
       </section>
 
       <section data-background="#FFF" class="text-left">
         <div class="heading">Announcements</div>
 
-        <p>&#149; Final Project</p>
+ <!--        <p>&#149; Final Project</p> -->
         <div class="pad-left-lg">
-          <p>&rArr; Due in 6 weeks: Monday, April 16th</p>
-          <p>&rArr; Final class will consist of (optional) presentations</p>
-          <p>&rArr; First deliverable due March 19th: at least three ideas or <u>proven progress</u> on one idea</p>
+          <p>&rArr; <a href="https://docs.google.com/spreadsheets/d/1tQdE3iWuNAAWdUqyYQfctzevWaQeX11JEX3LYvH_nRU/edit#gid=437767196">Office Hours Sign Up Sheet</a></p>
+          <p> &rArr; In Class Mini Project: Feedr on 4/26</p>
+          <ul class="pad-left-lg">
+            <li>DOM Manipulation Using jQuery</li>
+            <li>Primitive Data Types, Arrays, Objects, Functions, Constructor Functions</li>
+            <li>Making Several API Calls</li>
+          </ul>
+          <!-- <p>&rArr; Final class will consist of (optional) presentations</p> -->
+         <!--  <p>&rArr; First deliverable due March 19th: at least three ideas or <u>proven progress</u> on one idea</p> -->
         </div>
       </section>
 
@@ -50,14 +56,14 @@
       </section>
 
       <!-- QUESTIONS -->
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Questions</div>
 
         <div class="text-smaller">
           <p><b>Q: Does the AJAX call need to be placed at the bottom of the script?</b></p>
           <p class="fragment">A: Nope! Due to their <u>asynchronous</u> nature, can be placed anywhere. <a href="https://blog.sessionstack.com/how-javascript-works-event-loop-and-the-rise-of-async-programming-5-ways-to-better-coding-with-2f077c4438b5" target="_blank">More info</a>.</p>
         </div>
-      </section>
+      </section> -->
 
       <!-- INTRO TO THE DOM -->
       <section class="title" id="dom">
@@ -218,32 +224,24 @@
         <div class="heading">DOM: Recap</div>
 
         <div class="text-smaller">
-          <p><b>Q: What is the DOM?</b></p>
+          <p class="fragment"><b>Q: What is the DOM?</b></p>
           <p class="fragment pad-left-lg text-smaller">A: Object representation of HTM/CSS created by the browser</p>
           <p class="fragment"><b>Q: What is the name of the object we use to reference the DOM?</b></p>
           <p class="fragment pad-left-lg text-smaller">A: <code class="code">document</code></p>
           <p class="fragment"><b>Q: What is the best method of linking JS and HTML?</b></p>
           <p class="fragment pad-left-lg text-smaller">A: External scripts - separation of concerns; reusability</p>
-        </div>
-      </section>
-
-
-      <section data-background="#FFF" class="text-left">
-        <div class="heading">DOM: Recap</div>
-
-        <div class="text-smaller">
-          <p><b>Q: Why should scripts be placed at the end of the <code class="code">&lt;body&gt;</code>?</b></p>
+          <p class="fragment"><b>Q: Why should scripts be placed at the end of the <code class="code">&lt;body&gt;</code>?</b></p>
           <p class="fragment pad-left-lg text-smaller">A: DOM must be loaded before it can be manipulated</p>
         </div>
       </section>
 
       <!-- DOM MANIPULATION LAB -->
       <section data-background="#FFF" class="text-left">
-        <div class="heading">DOM Lab: Part One</div>
+        <div class="heading">DOM Lab: Part One - 30min</div>
 
         <div class="text-smallest">
-          <p>&#149; Open <code class="code">list_maker</code> in Sublime Text</p>
-          <p>&#149; Complete "Part One" in <code class="code">js/app.js</code></p>
+          <p>&#149; <code class="code">Open</code> and <code class="code">Fork</code> the <a href="https://codepen.io/jkeohan/pen/rdgXdd?editors=0010">JS/jQuery - Add List Item - Starter</a> repl.</p>
+          <p>&#149; Complete Only <code class="code">"Part One"</code></p>
           <p>&#149; Will have to look up the following methods:</p>
           <div class="pad-left-lg text-smaller">
             <p>&rArr; <code class="code">onclick</code></p>
@@ -495,11 +493,11 @@
 
       <!-- JQUERY LAB -->
       <section data-background="#FFF" class="text-left">
-        <div class="heading">DOM Lab: Part Two</div>
+        <div class="heading">DOM Lab: Part Two - 30min</div>
 
         <div class="text-smallest">
-          <p>&#149; Open <code class="code">list_maker</code> in Sublime Text</p>
-          <p>&#149; Complete "Part Two" in <code class="code">js/app.js</code></p>
+          <p>&#149; <code class="code">Open</code> the <a href="https://codepen.io/jkeohan/pen/rdgXdd?editors=0010">JS/jQuery - Add List Item - Starter</a> repl.</p>
+          <p>&#149; Complete <code class="code">"Part Two"</code></p>
           <p>&#149; Make sure you comment out your current code!</p>
           <p>&#149; Will have to look up the following jQuery methods:</p>
           <div class="pad-left-lg text-smaller">
@@ -516,14 +514,14 @@
       </section>
 
       <!-- ON DECK -->
-      <section data-background="#FFF" class="text-left">
+ <!--      <section data-background="#FFF" class="text-left">
         <div class="heading">What's On Deck</div>
         <h4>Class #08 (of 20) - jQuery Events and JS Templating </h4>
         <div class="pad-left-lg">
           <p>&#149; More jQuery Events!</p>
           <p>&#149; Javascript Templating: <a href="http://handlebarsjs.com/" target="_blank">Handlebars.js</a></p>
         </div>
-      </section>
+      </section> -->
     </div>
   </div>
 

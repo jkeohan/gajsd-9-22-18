@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JSD: Class 13</title>
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/general-assembly.css" id="theme">
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+  <link rel="stylesheet" href="css/zenburn.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+ <!--      <section class="hero condensed">
+        <h1>Hello</h1>
+        <div class="opening-instructions">
+          <p>1) Please download <a href="../materials/class11.zip" target="_blank">Class 11 Starter Code</a></p>
+          <p>2) Move the following into <code class="code">class-work</code>:</p>
+          <div class="pad-left-lg">
+            <p>&#149; <code class="code">geo_locator</code></p>
+            <p>&#149; <code class="code">functions_lab</code></p>
+          </div>
+        </div>
+      </section> -->
+
+      <section class="hero condensed">
+        <h1>Class <span class="red">#13</span></h1>
+        <h1 class="lesson-title">Google Maps Cont. and Geolocation</h1>
+      </section>
+
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Agenda</div>
+        <p>&#149; <a href="#/announce">Announcements</a></p>
+        <p>&#149; <a href="#/questions">Questions/Feedback</a></p>
+        <p>&#149; <a href="#/geolocation">Geolocation</a></p>
+      </section>
+
+      <section data-background="#FFF" class="text-left" id="announce">
+        <div class="heading">Announcements</div>
+
+        <div class="text-smaller">
+          <p>&#149; Final Project Deliverable</p>
+          <div class="pad-left-lg">
+          <p>&rArr; Please use the <a href="https://github.com/jkeohan/jsd-class-repo/tree/master/final-project-worksheet">Project Worksheet</a> to keep track of your project.</p>
+            <p>&rArr; Next Deliverable: Wireframes / Priority Matrix / Functional Components</p> 
+          </div>
+        <!--   <p>&#149; <a href="../materials/dom_exercises.zip">DOM exercises</a></p> -->
+        </div>
+      </section>
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Warm Up - 10min</div>
+        <div>
+          <p class="text-smaller">&#149; Open and fork the following repl:</p>
+           <a class="text-smaller" target="_" href="https://codepen.io/jkeohan/pen/ZoyNpg">Google Maps API - Markers - AJAX To Fetch - WarmUp</a>
+          
+        </div>
+      </section>
+ -->
+
+       <section data-background="#FFF" class="text-left">
+        <div class="heading" id="questions">Questions</div>
+
+        <div class="text-smaller">
+          <p>
+            <b>Q: What is the best practice if an API that your project relies on goes down? In addition to displaying an error message, is there a way to always make sure you have some kind of valid data to show? </b>
+          </p>
+          <p class="fragment">
+            A: <code class="code">The fetch() method includes a <a target="_" href="https://davidwalsh.name/fetch">.catch() method</a> that handles error response handling.</code>
+          </p>
+          <p class="fragment">
+            <b>Q: How do we decide when to use React/normal JS??</b>
+          </p>
+          <p class="fragment">
+            A: <code class="code">React is meant to be used as a front end framework and considered when building an more complex app. </code>
+          </p>
+             <p class="fragment">
+            <b>Comment:</b> <code class="code">Most of my dev experience has been with fixing bugs - the code is already there an I'm fixing the problem. Creating things from scratch is not intuitive. Questions like: 'where should I put this function? will this data be returned? what's the most efficient way?' can be overwhelming when trying to build functionality from scratch. </code>
+          </p>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left" id="geolocation">
+        <div class="heading">Geolocation: Navigator</div>
+      
+        <div class="text-smaller">
+          <p>&#149; Modern browsers have a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator" target="_blank">navigator</a> object</p>
+          <p>&#149; Used to access/identify users' browser information</p>
+          <div class="fragment">
+            <p>&#149; Available in console via <code class="code">navigator</code>:</p>
+            <div class="text-smaller pad-left-lg">
+              <p><code class="code">navigator.language</code> &rArr; user's language ex: <code class="code">en-US</code></p>
+              <p><code class="code">navigator.platform</code> &rArr; user's platform ex: <code class="code">MacIntel</code></p>
+              <p><code class="code">navigator.vendor</code> &rArr; users's browser ex: <code class="code">Google Inc.</code></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Geolocation</div>
+      
+        <div class="text-smaller">
+          <p>&#149; <code class="code">navigator</code> also contains a <code class="code">geolocation</code> object</p>
+          <p>&#149; Allows users to share geolocation data with web applications</p>
+          <p>&#149; Users must <u>enable</u> the feature on a per-site basis</p>
+          <div class="fragment">
+            <p>&#149; Note: not all browsers have this feature:</p>
+<pre><code>
+  if (navigator.geolocation) {
+    /* user has geolocation */
+  } else {
+    /* user does not have geolocation */
+  }
+
+</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Geolocation</div>
+      
+        <div class="text-smallest">
+          <p>&#149; <code class="code">getCurrentPosition</code> returns users' positions</p>
+          <p>&#149; Note: this is an <u>asynchronous</u> request; requires a <u>callback</u></p>
+          <p>&#149; The callback needs an arugment for the <code class="code">position</code></p>
+<pre><code>
+  navigator.geolocation.getCurrentPosition(handleResponse)
+
+  // callback
+  function handleResponse(position) {
+    console.log(position)
+  }
+
+  // {
+  //  coords: {
+  //    latitude: 40.6,
+  //    longitude: -73.9,
+  //    ...
+  //  },
+  //  timestamp: 1521422644286
+  // }
+
+</code></pre>
+          <p>&#149; Second note: this request can take a while...</p>
+        </div>
+      </section>
+
+        <section data-background="#FFF" class="text-left">
+          <div class="heading">Lab: 30min</div>
+          <p><a target="_" href="https://codepen.io/jkeohan/pen/LmypZM?editors=0010">Geolocation- CodePen</a> </p>
+        </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">FInal Project Deliverables</div>
+        <div class="text-smaller">
+          <p>&rArr;Open the  <a href="https://github.com/jkeohan/jsd327-class-repo/blob/master/final-project-worksheet/readme.md">Project Worksheet</a></p>
+            <p>&rArr; Second Deliverable: Wireframes / Priority Matrix / Functional Components</p>
+        <!--   <p>&#149; <a href="../materials/dom_exercises.zip">DOM exercises</a></p> -->
+        </div>
+      </section>
+
+
+      
+
+
+<!--       <section class="center">
+        <img src="img/class11/geo_locator.png" alt="">
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Geolocation Lab</div>
+      
+        <div class="text-smaller">
+          <p>&#149; Open <code class="code">geo_locator</code> in Sublime Text</p>
+          <p>&#149; Follow the instructions in <code class="code">main.js</code></p>
+          <p>&#149; Be sure to reference <code class="code">open_weather_map</code> and <code class="code">cit_bike_google_maps</code></p>
+        </div>
+      </section> -->
+
+      <!-- BREAK (5-7 mins) -->
+<!--       <section class="center">
+        <h1>5 minute break</h1>
+        <img src="img/main/break-time-bear.jpg">
+      </section> -->
+
+<!--       <section class="title" id="function-creation">
+        <h1>Function Creation</h1>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Function Creation</div>
+
+        <div class="text-smallest">
+          <p>&#149; JS provides multiple ways to create functions</p>
+          <div class="fragment">
+            <p>&#149; So far, we have seen:</p>
+            <div class="pad-left-lg">
+              <p>&rArr; <b>Named:</b> functions associated with a <u>name</u> that can be referenced later</p>
+              <p>&rArr; <b>Anonymous:</b> functions with no name; exist only when running</p>
+            </div>
+<pre><code>
+  // named function
+  function hello() {
+    conosle.log('hello, world!');
+  }
+
+  // anonymous function
+  function() {
+    console.log('hello, world!');
+  }
+
+</code></pre>
+          </div>
+        </div>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Named Functions</div>
+      
+        <div class="text-smaller">
+          <p>&#149; Named functions can be created in two ways:</p>
+          <div class="pad-left-lg">
+            <p>&rArr; Expressions</p>
+            <p>&rArr; Declarations</p>
+          </div>
+<pre><code>
+  // expression
+  var sayHello = function(greeting) {
+    console.log(greeting)
+  }
+
+  // declaration
+  function sayHello(greeting) {
+    console.log(greeting)
+  }
+
+  // both of the above can be called as:
+  sayHello('hello, world!')
+
+</code></pre>
+        </div>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Function Declarations</div>
+      
+        <div class="text-smaller">
+          <p>&#149; Function declarations are <a href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting" target="_blank">hoisted</a></p>
+          <p>&#149; Hoisted functions are loaded in memory during compilation</p>
+          <div class="fragment">
+            <p>&#149; We can use hoisted functions before we declare them:</p>
+<pre><code>
+  // invoked before declaration
+  sayHello('hello, world!')
+
+  function sayHello(greeting) {
+    console.log(greeting)
+  }
+
+</code></pre>
+            <p>&#149; We cannot use function expressions before we declare them</p>
+          </div>
+        </div>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Anonymous Functions</div>
+      
+        <div class="text-smaller">
+          <p>&#149; Anonymous functions are functions without a name</p>
+          <p>&#149; Created during application runtime</p>
+          <p>&#149; Convenience feature allowing easy function creation</p>
+          <p>&#149; Useful for callbacks and one-off functions</p>
+        </div>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Anonymous Functions: Callback Examples</div>
+      
+        <div class="text-smallest">
+          <p>&#149; Handling a browser event:</p>
+<pre><code>
+  $('#my-btn').click(function() {
+    // do something
+  })
+
+  $(document).on('click', 'li', function() {
+    // do something
+  })
+
+</code></pre>
+          <p>&#149; Handling an asynchronous event:</p>
+<pre><code>
+  $.ajax({
+    type: 'GET',
+    url: https://my-api.com,
+    success: function(res) {
+      console.log(res)
+    }
+  })
+
+</code></pre>
+        </div>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Anonymous vs Named Functions</div>
+      
+        <div class="text-smaller">
+          <p>&#149; Anonymous functions are a convenience feature</p>
+          <div class="fragment">
+            <p>&#149; Named functions <a href="http://jscs.info/rule/disallowAnonymousFunctions" target="_blank">could be</a> considered better practice:</p>
+            <div class="pad-left-lg">
+              <p>&rArr; Useful in recursive situations</p>
+              <p>&rArr; Will appear named in callstack during debugging</p>
+              <p>&rArr; Forces developer to consider what the function does</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="title" id="funcs-first-class">
+        <h1>First-Class Functions</h1>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Functions as First-Class Objects</div>
+
+        <div class="text-smaller">
+          <p>&#149; A programming language supports <a href="https://en.wikipedia.org/wiki/First-class_function" target="_blank">first-class functions</a> if functions can be:</p>
+          <div class="pad-left-lg">
+            <p>&rArr; Stored in a variable</p>
+            <p>&rArr; Passed as a parameter to another function (callback!)</p>
+            <p>&rArr; Returned from a function</p>
+            <p>&rArr; Included in data structures (objects and arrays)</p>
+          </div>
+          <p class="fragment">&#149; AKA - the language treats functions just like any other data type</p>
+        </div>
+      </section>
+ -->
+
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Functions as First-Class Objects</div>
+        
+        <div class="text-smallest">
+          <p>&#149; <b>Higher-order functions:</b></p>
+          <p class="pad-left-lg">&rArr; Functions that take other functions as an argument, or return functions</p>
+          
+          <p>&#149; One of JS's super powers (see: <a href="https://en.wikipedia.org/wiki/Functional_programming" target="_blank">functional programming</a>)</p>
+          <div class="fragment">
+            <p>&#149; JS has a few higher-order functions baked in:</p>
+<pre><code>
+  setTimeout(function() {
+    console.log("Hello, World!");
+  }, 1000);
+
+</code></pre>
+            <p>&#149; <code class="code">setTimeout()</code> takes two arguments:</p>
+            <div class="pad-left-lg">
+              <p>&rArr; A function to be called/invoked</p>
+              <p>&rArr; The duration to wait before invoking the function</p>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Functions as First-Class Objects</div>
+
+        <div class="text-smallest">
+          <p>&#149; No difference in syntax for higher-order functions:</p>
+          <p>&#149; Open the following <a href="https://repl.it/@cheshireoctopus/JSD-Higher-Order-Function-Example" target="_blank">REPL.it</a> with:</p>
+<pre><code>
+  // function expression
+  var blastOff = function() {
+    console.log('Blasting off!')
+  }
+
+  // higher-order function - takes a function as an argument
+  function launchRocket(rocketName, blastOffCallback) {
+    console.log('Launching ' + rocketName)
+    console.log('3... 2... 1...')
+    blastOffCallback()
+  }
+
+  launchRocket('Viking', blastOff)
+
+  // Launching Viking
+  // 3... 2... 1...
+  // Blasting off!
+
+</code></pre>
+        </div>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Functions as First-Class Objects</div>
+
+        <div class="text-smallest">
+          <p>&#149; In the previous example, <code class="code">blastOffCallback</code> is a <b>callback</b></p>
+          <p>&#149; Callbacks are functions that are <u>called</u> by another function</p>
+          <div class="fragment">
+            <p>&#149; Callbacks can take arguments:</p>
+<pre><code>
+  var blastOff = function(destination) {
+    console.log('Blasting off for ' + destination + '!')
+  }
+
+  function launchRocket(rocketName, blastOffCallback) {
+    console.log('Launching ' + rocketName)
+    console.log('3... 2... 1...')
+    blastOffCallback('Mars')
+  }
+
+  launchRocket('Viking', blastOff)
+
+  // Launching Viking
+  // 3... 2... 1...
+  // Blasting off for Mars!
+
+</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Functions as First-Class Objects</div>
+
+        <div class="text-smallest">
+          <p>Functions can also be returned from other functions:</p>
+<pre><code>
+  function makeRocketLauncher(rocketName) {
+    return function(destination) {
+      console.log('Launching ' + rocketName)
+      console.log('3... 2... 1...')
+      console.log('Blasting off for ' + destination + '!')
+    };
+  }
+
+  var launchViking = makeRocketLauncher('Viking')
+  var launchMariner = makeRocketLauncher('Mariner')
+
+  launchViking('Mars')
+  launchMariner('Mars')
+
+  // Launching Viking
+  // 3... 2... 1...
+  // Blasting off for Mars!
+
+  // Launching Mariner
+  // 3... 2... 1...
+  // Blasting off for Mars!
+
+</code></pre>
+        </div>
+      </section> -->
+
+      <!-- FUNCTIONS + CALLBACKS LAB -->
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Functions Lab</div>
+      
+        <div class="text-smaller">
+          <p>1) Open <code class="code">functions_lab</code></p>
+          <p>2) Follow instructions in <code class="code">main.js</code></p>
+          <p>3) Run from the cmd line: <code class="code">node main.js</code>, or copy into a REPL.it</p>
+          <p>4) If you finish early, please check in with me re: final project</p>
+        </div>
+      </section> -->
+
+      <!-- THE END -->
+      <section class="center">
+        <img src="img/main/the-end.jpg">
+      </section>
+
+      <!-- HOMEWORK -->
+      <!-- <section data-background="#FFF" class="text-left">
+        <div class="heading">Homework</div>
+        <p>1) Sign up for a <a href="https://500px.com/" target="_blank">500px account</a></p>
+        <div class="pad-left-lg">
+          <p>&#149; <a href="https://github.com/500px/500px-js-sdk" target="_blank">JS SDK</a> documenation</p>
+        </div>
+        <p>2) Optional <a href="http://reactivex.io/learnrx/" target="_blank">functional-programming</a> exercises</p>
+      </section> -->
+
+      <!-- ON DECK -->
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">What's On Deck</div>
+        <h4>Class #12 (of 20) - 500px API Lab</h4>
+        <div class="pad-left-lg">
+          <p>&#149; Advanced API Applications</p>
+          <p>&#149; OAuth</p>
+        </div>
+      </section> -->
+
+      <section class="center">
+        <h1>Exit Tickets!</h1>
+      </section>
+   </div>
+  </div>
+
+  <script src="js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="../js/analytics.js"></script>
+</body>
+</html>

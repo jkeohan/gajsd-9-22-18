@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>JSD: Class 11</title>
+  <title>JSD: Class 12</title>
   <link rel="stylesheet" href="css/reveal.css">
   <link rel="stylesheet" href="css/general-assembly.css" id="theme">
   <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
@@ -12,7 +12,7 @@
 <body>
   <div class="reveal">
     <div class="slides">
-      <section class="hero condensed">
+ <!--      <section class="hero condensed">
         <h1>Hello</h1>
         <div class="opening-instructions">
           <p>1) Please download <a href="../materials/class11.zip" target="_blank">Class 11 Starter Code</a></p>
@@ -22,63 +22,215 @@
             <p>&#149; <code class="code">functions_lab</code></p>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <section class="hero condensed">
-        <h1>Class <span class="red">#11</span></h1>
-        <h1>03/19/2018</h1>
-        <h1 class="lesson-title">More Functions</h1>
+        <h1>Class <span class="red">#12</span></h1>
+        <h1 class="lesson-title">Google Maps</h1>
       </section>
 
       <section data-background="#FFF" class="text-left">
         <div class="heading">Announcements</div>
 
         <div class="text-smaller">
-          <p>&#149; Final Class: Tuesday, April 17th</p>
-          <p>&#149; Final Project</p>
+          <p>&#149; Final Project Deliverable</p>
           <div class="pad-left-lg">
-            <p>&rArr; Due in 4 weeks</p>
-            <p>&rArr; Final class will consist of (optional) presentations</p>
-            <p>&rArr; Second deliverable due March 26th: libraries + API(s)</p>
+          <p>&rArr; Please use the <a target="_" href="https://github.com/jkeohan/jsd-class-repo/tree/master/final-project-worksheet">Project Worksheet</a> to keep track of your project.</p>
+            <p>&rArr; First Deliverable(this week): <b>Project Description</b></p>
+            <p>&rArr; Second Deliverable(next week): Wireframes / Priority Matrix / Functional Components</p>
+         <!--    <p>&rArr; Review these deliverables end of class today.</p> -->
+            
           </div>
-          <p>&#149; <a href="../materials/dom_exercises.zip">DOM exercises</a></p>
+        <!--   <p>&#149; <a href="../materials/dom_exercises.zip">DOM exercises</a></p> -->
         </div>
       </section>
+
+<!--     <section data-background="#FFF" class="text-left">
+        <div class="heading">Warm Up - 10min</div>
+        <div>
+        <p>Create a new Node/Express server on <a href="https://repl.it/">Repl.it</a></p>
+        <p>Add a new route that will make a fetch request to the CitiBike API and return the JSON to the user.</p>
+        <p>HINTS:</p>
+        <div class="pad-left-lg">
+            <p>fetch(url).then( res => res.json() ).then( data => { do something }) </p>
+            <p>res.json() is used to respond with the json</p>
+            <p>https://api.citybik.es/citi-bike-nyc.json</p>
+          </div>
+          
+        </div>
+      </section>  -->
 
       <!-- AGENDA -->
       <section data-background="#FFF" class="text-left">
         <div class="heading">Agenda</div>
 
-        <p>&#149; <code class="code">open_weather_map</code> review</p>
-        <p>&#149; <a href="#/geolocaiton">Geolocation</a></p>
-        <p>&#149; <a href="#/function-creation">Function Creation</a></p>
-        <p>&#149; <a href="#/funcs-first-class">Functions as first-class objects</a></p>
+<!--         <p>&#149; <code class="code">open_weather_map</code> review</p> -->
+        <p>&#149; <a href="#/googlemaps">Google Maps</a></p>
+        <p>&#149; <a href="#/citibike">Mapping CitiBike Data</a></p>
+<!--         <p>&#149; <a href="#/geolocaiton">Geolocation</a></p> -->
+<!--         <p>&#149; <a href="#/function-creation">Function Creation</a></p>
+        <p>&#149; <a href="#/funcs-first-class">Functions as first-class objects</a></p> -->
       </section>
 
       <!-- FEEDBACK -->
-      <section class="title">
+<!--       <section class="title">
         <h1>Mid-Course Feedback</h1>
-      </section>
+      </section> -->
 
-      <section data-background="#FFF" class="text-left">
+  <!--     <section data-background="#FFF" class="text-left">
         <div class="heading">Mid-Course Feedback</div>
 
         <p>1) Depth of topic exploration</p>
         <p class="fragment">2) Pace of the program</p>
         <p class="fragment">3) Collaborate with peers</p>
         <p class="fragment">4) "The men's bathroom is always out of hand napkins."</p>
-      </section>
+      </section> -->
 
       <!-- API REVIEW -->
-      <section class="title">
+<!--       <section class="title">
         <h1>Open Weather Map Review</h1>
+      </section> -->
+
+
+     <section class="title" id="googlemaps">
+        <h1>Google Maps</h1>
       </section>
 
-      <section class="title" id="geolocaiton">
-        <h1>Geolocation</h1>
-      </section>
+       <section class="center">
+          <h2>Let's Build a Map</h2>
+          <div class="text-left">
+            <p>&#149; <a target="_blank" href="https://developers.google.com/maps/documentation/javascript/tutorial">Google Maps JavaScript API V3 Documentation</a></p>
+   <!--          <p>&#149; Open <a href="https://codepen.io/jkeohan/pen/NXNpPP">Google Maps Example</a> in CodePen</p> -->
+          </div>
+        </section>
+
+        <section data-background="#FFF" class="text-left">
+          <div class="heading">Let's Build a Map</div>
+          <p>1. Obtain API Key</p>
+          <p>2. Add starter HTML and CSS</p>
+          <p>3. Enable map using JS</p>
+        </section>
+
+        <section data-background="#FFF" class="text-left">
+          <div class="heading">Google Maps: Changing the <code class="lower">center</code></div>
+
+          <p>Google Maps require:</p>
+          <p class="pad-left-lg">&rArr; <code class="code">center</code></p>
+          <p class="pad-left-lg">&rArr; <code class="code">zoom</code></p>
+
+          <p>Challenge: Change the <code class="code">center</code> of your map to NYC</p>
+          <p class="pad-left-lg fragment">&rArr; Hint: look up NYC's coordinates!</p>
+          <p class="pad-left-lg fragment">&rArr; 40.7127 N, 74.0059 W</p>
+        </section>
 
       <section data-background="#FFF" class="text-left">
+          <div class="heading">Google Maps: Adding Markers</div>
+
+          <p>&#149; Markers require:</p>
+          <div class="pad-left-lg">
+            <p><a href="https://developers.google.com/maps/documentation/javascript/adding-a-google-map">Google Docs - Adding Markers</a></p>
+            <p>&rArr; <code class="code">position: {lat: y, lng: x}</code></p>
+            <p>&rArr; <code class="code">map</code></p>
+          </div>
+          <p>&#149; Challenge: use the following to add a marker at NYC</p>
+<pre><code>
+  var marker = new google.maps.Marker({
+    position: {lat: y, lng: x},
+    map: map,
+    title: 'New York, NY'
+  });
+
+</code></pre>
+        </section>
+
+        <section data-background="#FFF" class="text-left">
+          <div class="heading">Google Maps: Multiple Markers</div>
+
+          <div class="text-smallest">
+            <p>&#149; Easiest way to add multiple markers:</p>
+<div class="fragment">
+<pre><code>
+  var marker1 = new google.maps.Marker({
+    position: {lat: 40, lng: 50},
+    map: map,
+  });
+
+  var marker2 = new google.maps.Marker({
+    position: {lat: 45, lng: 45},
+    map: map,
+  });
+
+  var marker3 = new google.maps.Marker({
+    position: {lat: 25, lng: 75},
+    map: map,
+  });
+
+  ...
+
+</code></pre>
+</div>
+            <p class="fragment">&#149; Is this efficient? Say I want to add 100 markers? 1,000?</p>
+            <p class="fragment">&#149; How would you do this?</p>
+          </div>
+        </section>
+
+              <section data-background="#FFF" class="text-left">
+          <div class="heading">Array Iteration</div>
+
+          <p>&#149; Apply the <code class="code">forEach</code> method to the array</p>
+<pre><code>
+  var locations = [ ... ];
+
+  locations.forEach(function (location) {
+    // will write function body here
+  });
+
+</code></pre>
+          <div class="fragment">
+            <p>&#149; Use a <code class="code">console.log</code> statement to ensure the loop is working correclty</p>
+<pre><code>
+  locations.forEach(function (location) {
+    console.log(location);
+  });
+
+</code></pre>
+          </div>
+        </section>
+
+        <section data-background="#FFF" class="text-left">
+          <div class="heading">Array Iteration</div>
+
+          <p>&#149; Write the function to apply each marker to the <code class="code">map</code></p>
+
+<pre><code>
+  locations.forEach(function (location) {
+
+    var marker = new google.maps.Marker({
+      position: {
+        lat: location.lat,
+        lng: location.lng,
+      },
+      title: location.title,
+      map: map
+    });
+
+  });
+
+</code></pre>
+        </section>
+
+        <section data-background="#FFF" class="text-left">
+          <div class="heading">Lab: 30min</div>
+          <p>Extend Google Maps to include CitiBike locations </p>
+    <!--       <p><a href="https://codepen.io/jkeohan/pen/47407646a1d054fa0139df8ccf3c6036?editors=0010">List Maker - CodePen</a> </p> -->
+          <p>https://api.citybik.es/citi-bike-nyc.json</p>
+        </section>
+
+<!--       <section class="title" id="geolocaiton">
+        <h1>Geolocation</h1>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Geolocation: Navigator</div>
       
         <div class="text-smaller">
@@ -93,9 +245,9 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Geolocation</div>
       
         <div class="text-smaller">
@@ -114,9 +266,9 @@
 </code></pre>
           </div>
         </div>
-      </section>
+      </section> -->
 
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Geolocation</div>
       
         <div class="text-smallest">
@@ -145,7 +297,12 @@
         </div>
       </section>
 
-      <section class="center">
+        <section data-background="#FFF" class="text-left">
+          <div class="heading">Lab: 30min</div>
+          <p><a href="https://codepen.io/jkeohan/pen/LmypZM?editors=0010">Geolocation- CodePen</a> </p>
+        </section> -->
+
+<!--       <section class="center">
         <img src="img/class11/geo_locator.png" alt="">
       </section>
 
@@ -157,19 +314,19 @@
           <p>&#149; Follow the instructions in <code class="code">main.js</code></p>
           <p>&#149; Be sure to reference <code class="code">open_weather_map</code> and <code class="code">cit_bike_google_maps</code></p>
         </div>
-      </section>
+      </section> -->
 
       <!-- BREAK (5-7 mins) -->
-      <section class="center">
+<!--       <section class="center">
         <h1>5 minute break</h1>
         <img src="img/main/break-time-bear.jpg">
-      </section>
+      </section> -->
 
-      <section class="title" id="function-creation">
+<!--       <section class="title" id="function-creation">
         <h1>Function Creation</h1>
-      </section>
+      </section> -->
 
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Function Creation</div>
 
         <div class="text-smallest">
@@ -194,9 +351,9 @@
 </code></pre>
           </div>
         </div>
-      </section>
+      </section> -->
 
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Named Functions</div>
       
         <div class="text-smaller">
@@ -221,9 +378,9 @@
 
 </code></pre>
         </div>
-      </section>
+      </section> -->
 
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Function Declarations</div>
       
         <div class="text-smaller">
@@ -243,9 +400,9 @@
             <p>&#149; We cannot use function expressions before we declare them</p>
           </div>
         </div>
-      </section>
+      </section> -->
 
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Anonymous Functions</div>
       
         <div class="text-smaller">
@@ -254,9 +411,9 @@
           <p>&#149; Convenience feature allowing easy function creation</p>
           <p>&#149; Useful for callbacks and one-off functions</p>
         </div>
-      </section>
+      </section> -->
 
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Anonymous Functions: Callback Examples</div>
       
         <div class="text-smallest">
@@ -283,9 +440,9 @@
 
 </code></pre>
         </div>
-      </section>
+      </section> -->
 
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Anonymous vs Named Functions</div>
       
         <div class="text-smaller">
@@ -303,9 +460,9 @@
 
       <section class="title" id="funcs-first-class">
         <h1>First-Class Functions</h1>
-      </section>
+      </section> -->
 
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Functions as First-Class Objects</div>
 
         <div class="text-smaller">
@@ -319,10 +476,10 @@
           <p class="fragment">&#149; AKA - the language treats functions just like any other data type</p>
         </div>
       </section>
+ -->
 
 
-
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Functions as First-Class Objects</div>
         
         <div class="text-smallest">
@@ -345,9 +502,9 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Functions as First-Class Objects</div>
 
         <div class="text-smallest">
@@ -374,9 +531,9 @@
 
 </code></pre>
         </div>
-      </section>
+      </section> -->
 
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Functions as First-Class Objects</div>
 
         <div class="text-smallest">
@@ -436,10 +593,10 @@
 
 </code></pre>
         </div>
-      </section>
+      </section> -->
 
       <!-- FUNCTIONS + CALLBACKS LAB -->
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Functions Lab</div>
       
         <div class="text-smaller">
@@ -448,7 +605,7 @@
           <p>3) Run from the cmd line: <code class="code">node main.js</code>, or copy into a REPL.it</p>
           <p>4) If you finish early, please check in with me re: final project</p>
         </div>
-      </section>
+      </section> -->
 
       <!-- THE END -->
       <section class="center">
@@ -466,14 +623,14 @@
       </section> -->
 
       <!-- ON DECK -->
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">What's On Deck</div>
         <h4>Class #12 (of 20) - 500px API Lab</h4>
         <div class="pad-left-lg">
           <p>&#149; Advanced API Applications</p>
           <p>&#149; OAuth</p>
         </div>
-      </section>
+      </section> -->
 
       <section class="center">
         <h1>Exit Tickets!</h1>

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JSD: Class 14</title>
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/general-assembly.css" id="theme">
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+  <link rel="stylesheet" href="css/zenburn.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+  <!--     <section class="hero">
+        <h1>Hello</h1>
+        <div class="opening-instructions">
+          <p>1) Please download <a href="../materials/class15.zip" target="_blank">Class 15 Starter Code</a></p>
+          <p>2) Move the following into <code class="code">homework</code>:</p>
+          <div class="pad-left-lg">
+            <p>&#149; <code class="code">keanu_fan_club</code></p>
+          </div>
+        </div>
+      </section> -->
+
+      <section class="hero condensed">
+        <h1>Class <span class="red">#14</span></h1>
+        <h1 class="lesson-title">Data Storage and Intro to CRUD and Firebase</h1>
+      </section>
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Announcements</div>
+
+        <div class="text-smaller">
+          <p>&#149; Final Project Deliverable</p>
+          <div class="pad-left-lg">
+          <p class="fragment">&rArr; Please use the <a href="https://github.com/jkeohan/jsd327-class-repo/blob/master/final-project-worksheet/readme.md">Project Worksheet</a> to keep track of your project.</p>
+             <p class="fragment">&rArr; This Weeks Deliverable(this week):  Core Application Structure (HTML, CSS, etc.)</p>
+            <p class="fragment">&rArr; Next Weeks Deliverable(next week):  Importing/Parsing API Data</p>
+         <!--    <p>&rArr; Review these deliverables end of class today.</p> -->
+           
+          </div>
+        <!--   <p>&#149; <a href="../materials/dom_exercises.zip">DOM exercises</a></p> -->
+        <p class="fragment">&#149; Next class will be In-Class Final Project Work</p>
+         <p class="fragment">&#149; I will meet with everyone for 15-20min to review project and assist.</p>
+        </div>
+
+      </section>
+
+      <!-- AGENDA -->
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Agenda</div>
+
+        <p>&#149; <a href="#/intro-to-crud">Data Storage Concepts</a></p>
+        <p>&#149; <a href="#/intro-to-crud">Using Local Storage</a></p>
+        <p>&#149; <a href="#/intro-to-crud">Intro to CRUD and Firebase</a></p>
+      </section>
+
+   <!--    <section class="title">
+        <h1>Prototype Review</h1>
+      </section> -->
+
+     <section class="title" id="intro-to-crud">
+        <h1>Data Storage Concepts</h1>
+      </section>
+
+
+     <section class="title" id="intro-to-crud">
+        <h1>Local Storage</h1>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Local Storage</div>
+
+        <div class="text-smaller">
+          <p>&#149; Web browsers can store data in memory using the localStorage global object</p>
+          <p class="fragment">&#149; In Chrome it's in Dev Tools > Application > Local Storage</p>
+          <div class="pad-left-lg">
+            <p class="fragment">&#149;.getItem(storageContainer name)</p>
+            <p class="fragment">&#149;.setItem(storageContainer name, value to store)</p>
+            <p class="fragment">&#149;JSON.stringify() should be used to store them as strings.</p>
+            <p class="fragment">&#149;JSON.parse() should be used to convert them back into their data type.</p>
+          </div>
+        </div>
+      </section>
+
+    <section data-background="#FFF" class="text-left">
+        <div class="heading">Lab: Configure Local Storage: 25min</div> 
+        <p>&#149; Configure the following <a  target="_" href=" https://codepen.io/jkeohan/pen/rvZpNd?editors=0010">CodePen </a>for local storage</p>
+      </section>
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Intro to CRUD</div>
+
+        <div class="text-smaller">
+          <p>&#149; Many web apps are wrappers around four data-related actions:</p>
+          <div class="pad-left-lg">
+            <p><u>C</u>reate</p>
+            <p><u>R</u>ead</p>
+            <p><u>U</u>pdate</p>
+            <p><u>D</u>elete</p>
+          </div>
+          <p class="fragment">&#149; Instagram, Facebook, GMail...</p>
+          <p class="fragment">&#149; Tonight, we will explore CRUD using <a href="https://firebase.google.com/" target="_blank">Firebase</a></p>
+        </div>
+      </section> -->
+
+
+      <!-- CRUD -->
+<!--       <section class="title" id="intro-to-crud">
+        <h1>Intro to CRUD</h1>
+      </section>
+ -->
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Intro to CRUD</div>
+
+        <div class="text-smaller">
+          <p>&#149; Many web apps are wrappers around four data-related actions:</p>
+          <div class="pad-left-lg">
+            <p><u>C</u>reate</p>
+            <p><u>R</u>ead</p>
+            <p><u>U</u>pdate</p>
+            <p><u>D</u>elete</p>
+          </div>
+          <p class="fragment">&#149; Instagram, Facebook, GMail...</p>
+          <p class="fragment">&#149; Tonight, we will explore CRUD using <a href="https://firebase.google.com/" target="_blank">Firebase</a></p>
+        </div>
+      </section>
+
+
+      <!-- FIREBASE -->
+      <section class="title" id="firebase">
+        <h1>Firebase</h1>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Intro</div>
+
+        <div class="text-smaller">
+          <p>&#149; So far, we have consumed data from third-party APIs...</p>
+          <p class="fragment">&#149; ...but, we have not yet created our own API</p>
+          <p class="fragment">&#149; Building an API could fall under backend development</p>
+          <p class="fragment">&#149; We have focused on frontend development...</p>
+          <p class="fragment">&#149; We will be leveraging <a href="https://firebase.google.com/" target="_blank">Firebase</a>, a backend-as-a-service, to build our own API and persist (store) data</p>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Intro</div>
+
+        <div class="text-smaller">
+          <p>&#149; Firebase serves as the entire backend of an application:</p>
+          <div class="pad-left-lg text-smaller">
+            <p>&rArr; Provides a database to persist application data</p>
+            <p>&rArr; Provides an easy-to-use API for CRUD actions against this DB</p>
+            <p>&rArr; Assist with user-authentication</p>
+            <p>&rArr; Offers an analytics suite</p>
+            <p>&rArr; Offers infrastructure (hosting)</p>
+          </div>
+          <p>&#149; Free service (up to a point)</p>
+          <p>&#149; Acquired by Google in <a href="https://techcrunch.com/2014/10/21/google-acquires-firebase-to-help-developers-build-better-realtime-apps/" target="_blank">October</a>, 2014</p>
+        </div>
+      </section>
+
+      <!-- FIREBASE SETUP -->
+      <section class="title" id="firebase-setup">
+        <h1>Firebase Setup</h1>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Setup</div>
+
+        <p>&#149; You are about to build your first CRUD app!</p>
+        <p>&#149; We are building a message board that allows users to:</p>
+        <div class="pad-left-lg text-smaller">
+          <p>&rArr; Create messages</p>
+          <p>&rArr; Read messages</p>
+          <p>&rArr; Update messages (upvote and downvote)</p>
+          <p>&rArr; Delete messages</p>
+        </div>
+        <p>&#149; Firebase will provide our backend</p>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Starter Codepen</div>
+
+        <p>&#149; Open the <a target="_" href="https://codepen.io/jkeohan/pen/bMxoam?editors=1010">firebase message board codepen</a></p>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Setup</div>
+
+        <div class="text-smaller">
+          <p>&#149; Sign up at <a href="https://www.firebase.com/" target="_blank">https://www.firebase.com/</a></p>
+          <p>&#149; Firebase requires you to sign up with Google (you will need a Google account)</p>
+          <div class="fragment">
+            <p>&#149; After signing up, go to the <u>Console</u> where you can create new apps</p>
+            <p>&#149; Click "Create New Project" and enter a project name (JSD-Project)</p>
+            <p>&#149; After creation, you will be taken to your new app's <u>Overview</u> page</p>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Setup</div>
+
+        <p>1. Select "Add Firebase to your web app":</p>
+        <div class="text-center">
+          <img src="./img/class15/firebase-app-overview.png" alt="">
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Setup</div>
+
+        <p>2. Copy the following code into the last line of the body in the html section of the codepen</p>
+        <div class="text-center">
+          <img src="img/class15/firebase-app-config.png" alt="">
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Setup</div>
+
+        <div class="text-smaller">
+          <p>&#149; A closer look at the configuration code:</p>
+<pre><code>
+  &lt;script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    // Initialize Firebase
+    var config = {
+      apiKey: "API_KEY",
+      authDomain: "APP_URL",
+      databaseURL: "DATABASE_URL",
+      projectId: "PROJECT_ID",
+      storageBucket: "STORAGE_URL",
+      messagingSenderId: "SENDER_ID"
+    };
+    firebase.initializeApp(config);
+  &lt;/script&gt;
+
+</code></pre>
+      <!--     <p>&#149; Move the JS code from the second <code class="code">&lt;script&gt;</code> into <code class="code">keys.js</code></p> -->
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Setup</div>
+
+        <p>3. To connect with DB</p>
+        <div class="text-center">
+          <img src="../img/firebasedb.png" alt="">
+        </div>
+      </section>
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Setup</div>
+
+        <p>4. Install the Firebase CLI (might have to  use <code class="code">sudo</code>):</p>
+        <div class="text-center">
+          <img src="img/class15/firebase-app-tools.png" alt="">
+        </div>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Setup</div>
+
+        <div class="text-smallest">
+          <p>1) From the cmd line, navigate into to your starter code's root</p>
+          <p>2) Run <code class="code">firebase login</code> to authenticate</p>
+          <p>3) Then run <code class="code">firebase init</code> to build your app locally:</p>
+          <div class="text-center">
+            <img src="img/class15/firebase-init.png" alt="">
+          </div>
+        </div>
+      </section> -->
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase DB Config</div>
+
+        <div class="text-smaller">
+        <p>Change Database settings read and write to true</p>
+<!--         <p>&#149; The init process will create a series of files in your current directory:</p>
+        <div class="pad-left-lg text-smallest">
+          <p><code class="code">.firebaserc</code></p>
+          <p><code class="code">database.rules.json</code></p>
+          <p><code class="code">firebase.json</code></p>
+        </div>
+        <p>&#149; Inside <code class="code">database.rules.json</code>:</p> -->
+<pre><code>
+  {
+    "rules": {
+      ".read": "true",
+      ".write": "true"
+    }
+  }
+
+</code></pre>
+        </div>
+      </section>
+
+      <!-- FIREBASE CREATE -->
+      <section class="title" id="firebase-create">
+        <h1>Firebase Create</h1>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Create</div>
+
+        <div class="text-smaller">
+          <p>&#149; We will first focus on creating messages for our board</p>
+          <p>&#149; Consider the steps necessary to achieve this:</p>
+          <div class="pad-left-lg">
+            <p class="fragment">1) Create the necessary HTML <code class="code">&lt;form&gt;</code> (already done!)</p>
+            <p class="fragment">2) Attach a <code class="code">submit</code> handler to this <code class="code">&lt;form&gt;</code></p>
+            <p class="fragment">3) Pull the data (our fan message) from the DOM</p>
+            <p class="fragment">4) Send this data to our backend to persist it in the database</p>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Create</div>
+
+        <div class="text-smallest">
+          <p>&#149; In the JS section of the CodePen</p>
+          <div class="pad-left-lg">
+            <div class="fragment">
+              <p>1) Connect to our Firebase data base via:</p>
+<pre><code>
+  // Get a reference to the root of the Database
+  var messageAppReference = firebase.database()
+  // Create a section for messages data in your db
+  var messagesReference = messageAppReference.ref('messages')
+
+</code></pre>
+            </div>
+            <p class="fragment">2) A <code class="code">submit</code> event attached to <code class="code">#message-form</code></p>
+            <p class="fragment">3) Store the user input from <code class="code">#message</code> in a variable</p>
+            <div class="fragment">
+              <p>4) Send data to your Firebase DB:</p>
+<pre><code>
+  messagesReference.push({
+    message: message,
+    votes: 0
+  })
+
+</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Create</div>
+
+        <div class="text-smaller">
+          <p>&#149; Create a few messages; then visit your app's Database dashboard</p>
+          <p>&#149; You should be able to view (and interact with) your data!</p>
+          <div class="text-center">
+            <img src="img/class15/firebase-app-view-data.png" alt="">
+          </div>
+        </div>
+      </section>
+
+      <!-- FIREBASE READ -->
+      <section class="title" id="firebase-read">
+        <h1>Firebase Read</h1>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Read</div>
+
+        <div class="text-smaller">
+          <p>&#149; We can create messages; now we need to display them</p>
+          <p>&#149; Conceptualize the steps for our <b>read</b> action:</p>
+          <div class="pad-left-lg">
+            <p class="fragment">1) We first need to <u>fetch</u> our data (messages) from the API (Firebase)</p>
+            <p class="fragment">2) These messages need to be iterated over and formatted properly</p>
+            <p class="fragment">3) Lastly, we render these objects in the DOM</p>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Read</div>
+
+        <div class="text-smaller">
+          <p>&#149; Add the following to your <code class="code">app.js</code>:</p>
+<pre><code>
+  function getFanMessages() {
+    // listens for changes to the `messages` node in the DB
+    messageAppReference.ref('messages').on('value', function (results) {
+
+      results.forEach(function (msg) {
+        var message = msg.val()
+        var id = msg.key
+        console.log(message, id)
+      })
+    })
+  }
+
+</code></pre>
+          <p>&#149; See if you can append the <code class="code">message</code> object to the DOM</p>
+          <p>&#149; Hint: use the <code class="code">&lt;ul class="message-board"&gt;</code></p>
+        </div>
+      </section>
+
+      <!-- FIREBASE UPDATE -->
+      <section class="title" id="firebase-update">
+        <h1>Firebase Update</h1>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Update</div>
+
+        <p>&#149; We want to more than just render our messages:</p>
+        <div class="pad-left-lg">
+          <p>&rArr; Upvote a message</p>
+          <p>&rArr; Downvote a message (damn haters)</p>
+        </div>
+        <p>&#149; Firebase makes updating a record easy via the <code class="code">update()</code> API</p>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Update</div>
+
+        <div class="text-smallest">
+          <p>&#149; We first need to add the proper DOM elements for upvoting and downvoting</p>
+          <p>&#149; Add the following into your <code class="code">forEach</code> loop:</p>
+<pre><code>
+  // Create up vote element
+  var $upVoteElement = $('&lt;i class="fa fa-thumbs-up pull-right"></i>')
+
+  $upVoteElement.on('click', function () {
+    updateMessage(id, ++votes)
+  })
+
+  // Create down vote element
+  var $downVoteElement = $('&lt;i class="fa fa-thumbs-down pull-right"></i>')
+
+  $downVoteElement.on('click', function () {
+    updateMessage(id, --votes)
+  })
+
+  $li.append($downVoteElement)
+  $li.append($upVoteElement) 
+
+</code></pre>
+          <p>&#149; Ensure you create a <code class="code">votes</code> variable!</p>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Update</div>
+
+        <div class="text-smaller">
+          <p>&#149; Our DOM elements are calling a function <code class="code">updateMessage</code></p>
+          <p>&#149; This function takes a message <code class="code">id</code> and a <code class="code">voteCount</code></p>
+          <div class="fragment">
+            <p>&#149; Send a request to the Firebase API to update our message record:</p>
+<pre><code>
+  function updateMessage (id, votes) {
+    // find message whose objectId is equal to the id we're searching with
+    var messageReference = messageAppReference.ref('messages/' + id)
+
+    // update votes property
+    messageReference.update({
+      votes: votes,
+    })
+  }
+
+</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Update</div>
+
+        <div class="text-smaller">
+          <p>&#149; Lastly, add an element to display each message's vote count</p>
+          <p>&#149; Add the following into your <code class="code">forEach</code> loop:</p>
+<pre><code>
+  $li.append('&lt;div class="pull-right"&gt;' + votes + '&lt;/div&gt;')
+
+</code></pre>
+        </div>
+      </section>
+
+      <!-- FIREBASE DELETE -->
+      <section class="title" id="firebase-delete">
+        <h1>Firebase Delete</h1>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Delete</div>
+
+        <p>&#149; Our final action will allow users to delete messages</p>
+        <p>&#149; Delete requests in Firebase work as follows:</p>
+        <div class="pad-left-lg text-smaller">
+          <p>1) Get the unique ID - <code class="code">key</code> - of the object to delete</p>
+          <p>2) Reference this object in the <code class="code">Firebase.database</code> instance</p>
+          <p>3) Call the <code class="code">.remove()</code> method on this object</p>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Firebase Delete</div>
+
+        <p>&#149; First, let's add the necessary DOM elements</p>
+        <p>&#149; Add the following into your <code class="code">forEach</code> loop:</p>
+<pre><code>
+  // create delete element
+  var $deleteElement = $('&lt;i class="fa fa-trash pull-right delete"&gt;&lt;/i&gt;')
+
+  $deleteElement.on('click', function () {
+    deleteMessage(id)
+  })
+
+  $li.append($deleteElement)
+
+</code></pre>
+        </section>
+
+        <section data-background="#FFF" class="text-left">
+          <div class="heading">Firebase Delete</div>
+
+          <p>&#149; Now, create the proper function to call <code class="code">.remove()</code>:</p>
+<pre><code>
+  function deleteMessage(id) {
+    // find message whose objectId is equal to the id we're searching with
+    var messageReference = messageAppReference.ref('messages/' + id)
+
+    messageReference.remove()
+  }
+
+</code></pre>
+        </section>
+
+        <!-- THE END -->
+        <section class="center">
+          <img src="img/main/the-end.jpg">
+        </section>
+
+        <!-- HOMEWORK -->
+  <!--       <section data-background="#FFF" class="text-left">
+          <div class="heading">Homework</div>
+          <p>1) Finish <code class="code">jsd_message_board</code></p>
+          <p>2) Final project MVP</p>
+        </section> -->
+
+        <!-- ON DECK -->
+  <!--       <section data-background="#FFF" class="text-left">
+          <div class="heading">What's On Deck</div>
+          <h4>Class #16 (of 20) - Deploying Your App</h4>
+          <div class="pad-left-lg">
+            <p>&#149; Deployment w/ GitHub Pages</p>
+            <p>&#149; Deployment w/ Heroku</p>
+            <p>&#149; Heroku + Firebase</p>
+          </div>
+        </section> -->
+
+        <section class="center">
+          <h1>Exit Tickets!</h1>
+        </section>
+   </div>
+  </div>
+
+  <script src="js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="../js/analytics.js"></script>
+</body>
+</html>

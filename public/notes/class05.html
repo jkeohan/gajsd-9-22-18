@@ -12,7 +12,7 @@
 <body>
   <div class="reveal">
     <div class="slides">
-      <section class="hero condensed">
+ <!--      <section class="hero condensed">
         <h1>Hello</h1>
 
         <div class="opening-instructions">
@@ -28,19 +28,18 @@
           </div>
           <p>5) Solutions from last week are included</p>
         </div>
-      </section>
+      </section> -->
 
       <section class="hero condensed">
         <h1>Class <span class="red">#05</span></h1>
-        <h1>02/21/2018</h1>
+   <!--      <h1>02/21/2018</h1> -->
         <h1 class="lesson-title">Functions and Scope</h1>
       </section>
 
       <section data-background="#FFF" class="text-left">
         <div class="heading">Agenda</div>
-
         <p>&#149; <a href="#/final-project-overview">Final Project Overview</a></p>
-        <p>&#149; <a href="#/bash-profile"><code class="code">.bash_profile</code></a></p>
+<!--         <p>&#149; <a href="#/bash-profile"><code class="code">.bash_profile</code></a></p> -->
         <p>&#149; <a href="#/functions">Functions</a></p>
         <p>&#149; <a href="#/function-arguments">Function Arguments</a></p>
         <p>&#149; <a href="#/return-statement">The <code class="code">return</code> statement</a></p>
@@ -56,29 +55,31 @@
 
         <div class="text-smaller">
           <p>
-            <b>Q: What is the point of the <code class="code">.map()</code> method? How is it used?</b>
+            <b>Q: How do you setup map() so that it can use an array of characters instead of numbers? </b>
           </p>
           <p class="fragment">
-            A: The <code class="code">.map()</code> method is used to transform one array into another.
+            A: <code class="code">
+            ['a','b','c'].map((d) => { return d })</code>
           </p>
           <p class="fragment">
-            <b>Q: At what point do <code class="code">if</code>/<code class="code">else</code> statments become unwieldy?</b>
+            <b>Q: What is the difference between .map() and .foreach()?</b>
           </p>
           <p class="fragment">
-            A: When you decide they do. As an alternative, check out the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch" target="_blank">switch</a> statement.
+            A: <code class="code">One returns a new array (map) and the other doesn't (forEach).</code>
           </p>
           <p class="fragment">
-            <b>Q: Are there any 'ah-ha!' moments while learning JS - or is it just repetition?</b>
+            <b>Q: How are the theories we are learning today applied to javascript we see and interact with?</b>
           </p>
           <p class="fragment">
-            A: Both - more repetition.
+            A: <code class="code">Everything you have learned is fundamental and implemented in all JS applications.</code>
           </p>
         </div>
       </section>
 
       <!-- WARM UP -->
       <section class="center">
-        <h1><a target="_blank" href="https://repl.it/@cheshireoctopus/JSD-Class-5-Warm-Up">Warm Up</a></h1>
+        <h1>Warm Up</h1>
+        <a target="_blank" href="https://repl.it/@jkeohan/JSD-W03-D05-Warmup-10min">Repl</a>
       </section>
 
       <!-- PREVIOUS FINAL PROJECTS -->
@@ -93,11 +94,13 @@
           <p>&#149; Due 8 weeks from today (<a href="http://jsd.nyc/pages/final-project.html" target="_blank">more info</a>)</p>
           <p>&#149; <u>To Do:</u> begin developing ideas now!</p>
           <p>&#149; Will begin regular deliverables starting week five</p>
+          <p>&#149; <a href="  https://docs.google.com/spreadsheets/d/1tQdE3iWuNAAWdUqyYQfctzevWaQeX11JEX3LYvH_nRU/edit?usp=sharing">Office Hours</a></p>
+        
             <div class="fragment">
             <p>&#149; Previous JSD projects:</p>
             <div class="pad-left-lg text-smallest">
               <p>&rArr; <a target="_blank" href="https://gonna-be-late.firebaseapp.com/">https://gonna-be-late.firebaseapp.com/</a></p>
-              <p>&rArr; <a target="_blank" href="http://amandainnis.github.io/artists_without_studios/index.html">http://amandainnis.github.io/artists_without_studios/index.html</a></p>
+           <!--    <p>&rArr; <a target="_blank" href="http://amandainnis.github.io/artists_without_studios/index.html">http://amandainnis.github.io/artists_without_studios/index.html</a></p> -->
               <p>&rArr; <a target="_blank" href="https://colorz-9355e.firebaseapp.com/">https://colorz-9355e.firebaseapp.com/</a></p>
             </div>
           </div>
@@ -105,11 +108,11 @@
       </section>
 
       <!-- BASH PROFILE -->
-      <section class="center" id="bash-profile">
+<!--       <section class="center" id="bash-profile">
         <h1><code class="code lower">.bash_profile</code></h1>
-      </section>
+      </section> -->
 
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading"><code class="code lower">.bash_profile</code></div>
 
         <div class="text-smaller">
@@ -125,9 +128,9 @@
           </div>
           <p class="fragment"><b>NOTE</b>: Do not have to use bash; see <a href="http://ohmyz.sh/" target="_blank">http://ohmyz.sh/</a></p>
         </div>
-      </section>
+      </section> -->
 
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading"><code class="code lower">.bash_profile</code></div>
 
         <div class="text-smaller">
@@ -137,7 +140,7 @@
           <p>&#149; If you do NOT see this file, run <code class="code">touch .bash_profile</code>, and then open this file in Sublime Text</p>
           <p>&#149; Copy and paste the <a href="https://gist.github.com/cheshireoctopus/594c2473126d942577fb287459bfa614" target="_blank">following</a> into your <code class="code">.bash_profile</code></p>
         </div>
-      </section>
+      </section> -->
 
       <!-- FUNCTIONS -->
       <section class="title" id="functions">
@@ -156,7 +159,7 @@
             <p>&#149; What is the name of this function? What does this function do?</p>
 <pre><code>
   function hello () {
-    var greeting = 'hello!';
+    let greeting = 'hello!';
     greeting = 'hello, world!';
     alert(greeting);
   }
@@ -212,18 +215,18 @@
       </section>
 
       <!-- LAB -->
-      <section class="title">
+    <!--   <section class="title">
         <h1>Lab</h1>
-      </section>
+      </section> -->
 
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Lab</div>
         <p>&#149; Open <code class="code">dice</code> in Sublime Text</p>
         <p>&#149; Open <code class="code">app.js</code> and <code class="code">index.html</code></p>
         <p>&#149; Follow the directions in <code class="code">app.js</code></p>
         <p>&#149; Remember to use Chrome's developer console to check for any JavaScrpit errors:</p>
         <p class="pad-left-lg"><code class="code">command</code> + <code class="code">option</code> + <code class="code">j</code></p>
-      </section>
+      </section> -->
 
       <!-- PARAMETERS -->
       <section class="title" id="function-arguments">
@@ -399,7 +402,7 @@
     return x + y;
   }
 
-  var z = sum(3, 4);
+  let z = sum(3, 4);
   // 7
 
 </code></pre>
@@ -416,8 +419,8 @@
     return words;
 
     // The following statements will not run:
-    var x = 1;
-    var y = 2;
+    let x = 1;
+    let y = 2;
     console.log(x + y)
   }
 
@@ -440,6 +443,10 @@
 </code></pre>
       </section>
 
+        <section class="title">
+        <h1>Lab</h1>
+      </section>
+
       <!-- SCOPE -->
       <section class="title" id="scope">
         <h1>Scope</h1>
@@ -460,10 +467,10 @@
           <div class="fragment">
             <p>&#149; What will the following code log:</p>
 <pre><code>
-  var num = 10;
+  let num = 10;
 
   function speak () {
-    var num = 100;
+    let num = 100;
     console.log(num)
   }
 
@@ -483,7 +490,7 @@
           <div class="fragment">
 <pre><code>
   // global scope
-  var myFavActor = 'Keanu Reeves';
+  let myFavActor = 'Keanu Reeves';
 
   function logFavActor() {
     // local scope, but has access to global scope
@@ -494,7 +501,7 @@
   }
 
 </code></pre>
-            <p>&#149; <b>Note:</b> If you omit <code class="code">var</code>, the variable becomes global</p>
+            <p>&#149; <b>Note:</b> If you omit <code class="code">let</code>, the variable becomes global</p>
           </div>
         </div>
       </section>
@@ -506,10 +513,10 @@
           <p>&#149; Variables and functions defined <u>INSIDE</u> a function or block</p>
           <p>&#149; <u>Private</u> - cannot be accessed outside the function</p>
 <pre><code>
-  var a = "this is the global scope";
+  let a = "this is the global scope";
 
   function myFunction() {
-      var b = "this variable is defined in the local scope";
+      let b = "this variable is defined in the local scope";
   }
 
   myFunction();
@@ -530,7 +537,7 @@
 <pre><code>
   function speak(words) {
     // scope created by the speak function
-    var message = words + "!";
+    let message = words + "!";
   }
 
 </code></pre>
@@ -559,10 +566,10 @@
       <section data-background="#FFF" class="text-left">
         <div class="heading">Lab/Homework</div>
 
-        <p>1) Open <code class="code">rock_paper_scissors</code> in Sublime Text</p>
+<!--         <p>1) Open <code class="code">rock_paper_scissors</code> in Sublime Text</p>
         <p>2) Navigate to this directory using your terminal</p>
         <p>3) Complete the <code class="code">generateCPUChoice</code> and <code class="code">compare</code> functions</p>
-        <p>4) Run this file from your terminal using <code class="code">node rock_paper_scissors.js</code></p>
+        <p>4) Run this file from your terminal using <code class="code">node rock_paper_scissors.js</code></p> -->
       </section>
 
       <!-- END/WRAPUP -->
@@ -570,22 +577,23 @@
         <img src="img/main/the-end.jpg">
       </section>
 
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Homework</div>
 
         <p>1) Complete <code class="code">rock_paper_scissors</code></p>
-      </section>
+      </section> -->
 
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">What's On Deck</div>
         <h4>Class #06 (of 20) - Project One</h4>
         <div class="pad-left-lg">
           <p>&rArr; In-class project</p>
         </div>
-      </section>
+      </section> -->
 
       <section class="center">
-        <h1>EXIT TICKETS!</h1>
+        <h1>EXIT TICKET</h1>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc0TaTsnF80pChuazdpHu3lFjS_wsLP2fjJgNsYsDzsJo0ZnA/viewform">LINK</a>
       </section>
     </div>
   </div>

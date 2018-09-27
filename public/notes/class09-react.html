@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JSD: Class 14</title>
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/general-assembly.css" id="theme">
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+  <link rel="stylesheet" href="css/zenburn.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+ <!--      <section class="hero condensed">
+        <h1>Hello</h1>
+        <div class="opening-instructions">
+          <p>1) Please download <a href="../materials/class11.zip" target="_blank">Class 11 Starter Code</a></p>
+          <p>2) Move the following into <code class="code">class-work</code>:</p>
+          <div class="pad-left-lg">
+            <p>&#149; <code class="code">geo_locator</code></p>
+            <p>&#149; <code class="code">functions_lab</code></p>
+          </div>
+        </div>
+      </section> -->
+
+
+
+      <section class="hero condensed">
+        <h1>Class <span class="red">#09</span></h1>
+        <h1 class="lesson-title">Intro To React Cont...</h1>
+      </section>
+<!-- 
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Announcements</div>
+
+        <div class="text-smaller">
+          <p>&#149; Final Project Deliverable</p>
+          <div class="pad-left-lg">
+          <p  class="fragment">&rArr; Please use the <a href="https://github.com/jkeohan/jsd327-class-repo/blob/master/final-project-worksheet/readme.md">Project Worksheet</a> to keep track of your project.</p>
+            <p  class="fragment">&rArr; Second Deliverable(this week): Wireframes / Priority Matrix / Functional Components</p>
+            <p  class="fragment">&rArr; Third Deliverable(next week):  Core Application Structure (HTML, CSS, etc.)</p>
+           
+          </div>
+          <p  class="fragment">&#149; Make sure to review the <a href="http://jsd327.surge.sh/pages/final-project.html">Final Project Deliverable</a> as you continue to your planning.</p>
+        </div>
+      </section> -->
+
+      <!-- AGENDA -->
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Agenda</div>
+        <p>&#149; Mid Course Survey</p>
+        <p>&#149; Questions...</p>
+        <p>&#149; Intro To React Cont...</p>
+        <p>&#149; Working with <code class="code">Event Listeners</code></p>
+        <p>&#149; Passing down <code class="code">Props</code></p></p>
+      </section> 
+
+      <section data-background="#FFF" class="text-left" id="quetsions">
+        <div class="heading">Questions</div>
+
+        <div class="text-smaller">
+          <p>
+            <b>Q: Looking at my codebase at work, I don't see `class App extends React`, rather const BankTransferDetails = ({ trade, inModal }) => {...}
+Is this a different way? </b>
+          </p>
+          <p class="fragment">
+            A: <code class="code">
+            Yes...There are two ways to create components...As an ES6 Class and as a Functional Component.</code>
+          </p>
+          <p class="fragment">
+            <b>Q: Can you use React, JS, and Jquery in the same JS file?</b>
+          </p>
+          <p class="fragment">
+            A: <code class="code">Yes...but you never will...</code>
+          </p>
+          <p class="fragment">
+            <b>Q: It seems like there's a lot of set up in React to get basic things working- are there shortcuts or boilerplates for if you wanted to make something quickly?</b>
+          </p>
+          <p class="fragment">
+            A: <code class="code">Yes...There is a Node NPM package called "Create-React-App"</code>
+          </p>
+        </div>
+      </section>
+
+
+    <section data-background="#FFF" class="text-left">
+        <div class="heading"> Why Use React?</div>
+        <div>
+        <p>&#149 The answer is based on how we respond to the following question: </p>
+        <div class="pad-left-lg">
+        <p  class="fragment">&rArr; Are you building a application or just a basic html/css site? </p>
+          <p  class="fragment">&rArr; Where is the data in your app located...in the DOM, JS or both? </p>
+          <p  class="fragment">&rArr; Does the app need to keep track of any changes to the data?</p>
+           <p  class="fragment">&rArr; Does changing the data effect more than one element in your code?</p>     
+          <p  class="fragment">&rArr; Are there any repeatable patterns that would benefit from using a base template?</p>
+          <p  class="fragment">&rArr; Are you concerned about performance and scalability?</p>
+          </div>
+      </section> 
+
+
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">React Review</div>
+        <div>
+        <p class="fragment">&#149 What are the two React libraries you need to import?</p>
+        <p class="fragment pad-left-lg text-smaller">&#149 React and ReactDOM</p>
+        <p class="fragment">&#149 How do you configure React's entry point to the application?</p>
+        <p class="fragment pad-left-lg text-smaller">&#149 ReactDOM.render(</App />, document.getElementById('root')</p>
+        <p class="fragment">&#149 Every component requires this one method?</p>
+        <p class="fragment pad-left-lg text-smaller">&#149 render(){ }</p>
+        <p class="fragment">&#149 The render method must return what?</p>
+        <p class="fragment pad-left-lg text-smaller">&#149 a single DOM element</p>
+<!--         <p class="fragment">&#149 What is state?</p>
+        <p class="fragment pad-left-lg text-smaller">&#149 It's what info your component is managing</p> -->
+      </section> 
+
+
+
+
+    <section data-background="#FFF" class="text-left">
+        <div class="heading"> React Components</div>
+        <div>
+        <p>&#149 React Components can be either: </p>
+        <div class="pad-left-lg">
+          <p  class="fragment">&rArr; Functional - which doesn't include state (aka stateless)</p>
+          <p  class="fragment">&rArr; Class - which does contain state</p>   
+          <a class="fragment" target="_" href="https://reactjs.org/docs/components-and-props.html">React Doc for Components and Props</a>
+          </div>
+      </section> 
+
+
+
+   <!--    <section data-background="#FFF" class="text-left">
+        <div class="heading"> Passing Down Props</div>
+        <div>
+        <p>&#149 <a href="https://git.generalassemb.ly/pages/ed-product-library/module-fe-framework-react/532rwqfzbfasnbfansfbasnbfqpi4u4p1421fafaa/lectures/04-further-information/07-self-exercise.html">GA React Module</a></p>
+        <p>&#149 <a href="https://reactjs.org/docs/state-and-lifecycle.html">Official React Docs</a></p>
+      </section> 
+ -->
+
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Installing Chrome "React" Extensions & Investigate Sites</div>
+        <div>
+        <p>Chrome provides a few extensions that facilitate working with React. Let's take a moment and install the following extensions:</p>
+        <p><a href="https://chrome.google.com/webstore/detail/react-detector/jaaklebbenondhkanegppccanebkdjlh?hl=en-US">React-Detector</a></p>
+        <p><a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-US">React Developer Tools</a></p>
+      </section>  -->
+
+    <section data-background="#FFF" class="text-left">
+        <div class="heading">Props and Event Listeners</div>
+        <div>
+        <p><a href="https://reactjs.org/docs/hello-world.html">React Docs</a> are fantastic so we will use them as our reference for the following concepts: </p>
+                 <div class="pad-left-lg">
+          <p>&#149; Passing down <code class="code">Props</code></p></p>
+          <p>&#149; Working with <a href="https://reactjs.org/docs/handling-events.html"><code class="code">Event Listeners</a></code></p>
+          <p>&#149; Capturing <code class="code">User Input</code></p> 
+      </div>
+      </section> 
+
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Code Along/Demo</div>
+        <div>
+        <p>Let's revisit and refactor <a target="_"  href="https://codepen.io/jkeohan/pen/vawQjQ">Color Switcher</a></p>
+
+      </section> 
+
+
+    <section data-background="#FFF" class="text-left">
+        <div class="heading">LAB: 30min</div>
+        <div>
+        <p>Refactor  <a href="https://codepen.io/jkeohan/pen/jxzXNQ?editors=1010">Stop Light</a></p>
+        <div class="pad-left-lg">
+            <p>Render all the elements in the HTML </p>
+            <p>Render all the existing HTML within the App Component</p>
+          </div>
+      </section> 
+
+
+
+
+      <!-- FEEDBACK -->
+<!--       <section class="title">
+        <h1>Mid-Course Feedback</h1>
+      </section> -->
+
+  <!--     <section data-background="#FFF" class="text-left">
+        <div class="heading">Mid-Course Feedback</div>
+
+        <p>1) Depth of topic exploration</p>
+        <p class="fragment">2) Pace of the program</p>
+        <p class="fragment">3) Collaborate with peers</p>
+        <p class="fragment">4) "The men's bathroom is always out of hand napkins."</p>
+      </section> -->
+
+      <!-- API REVIEW -->
+
+      <section class="center">
+        <h1>Exit Tickets!</h1>
+      </section>
+   </div>
+  </div>
+
+  <script src="js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="../js/analytics.js"></script>
+</body>
+</html>

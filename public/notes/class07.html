@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>JSD: Class 07</title>
+  <title>JSD: Class 08</title>
   <link rel="stylesheet" href="css/reveal.css">
   <link rel="stylesheet" href="css/general-assembly.css" id="theme">
   <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
@@ -12,297 +12,534 @@
 <body>
   <div class="reveal">
     <div class="slides">
-    <section class="hero condensed">
-      <h1>Hello</h1>
-      <div class="opening-instructions">
-        <p>1) Please download <a href="../materials/class07.zip" target="_blank">Class 07 Starter Code</a></p>
-        <p>2) Move the following into <code class="code">homework</code>:</p>
-        <div class="pad-left-lg">
-          <p>&#149; <code class="code">citi_bike_google_maps</code></p>
-        </div>
-        <p>3) <code class="code">website_starter</code> has been included</p>
-      </div>
-    </section>
-
-    <section class="hero condensed">
-      <h1>Class <span class="red">#07</span></h1>
-      <h1>02/28/2018</h1>
-      <h1 class="lesson-title">Project One</h1>
-    </section>
-
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">Agenda</div>
-      <p>&#149; <a href="#/html-css-overview">HTML/CSS Overview</a></p>
-      <p>&#149; <a href="#/google-maps-api">Google Maps API</a></p>
-      <p>&#149; <a href="#/citi-bike-lab">CitiBike Lab</a></p>
-    </section>
-
-    <section class="center">
-      <h1>Object Review</h1>
-      <a href="https://repl.it/@cheshireoctopus/JSD-Class-07-Objects-Warmup" target="_blank">https://repl.it/@cheshireoctopus/JSD-Class-07-Objects-Warmup</a>
-    </section>
-
-    <!-- HTML/CSS Overview -->
-    <section class="title" id="html-css-overview">
-      <h1>HTML/CSS Overview</h1>
-    </section>
-
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">How the Internet Works</div>
-      <div class="text-center">
-        <img src="img/class01/dns.png">
-      </div>
-    </section>
-
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">How the Internet Works</div>
-
-      <div class="text-smallest">
-        <p>&#149; Websites are really just collections of files:</p>
-        <div class="pad-left-lg text-smallest">
-          <p>&rArr; HTML</p>
-          <p>&rArr; CSS</p>
-          <p>&rArr; JavaScript</p>
-        </div>
-        <p class="fragment">&#149; Hosted on specialized computers &rArr; <b>servers</b></p>
-        <div class="fragment">
-          <p>&#149; Web development is the processes of:</p>
-          <div class="pad-left-lg text-smallest">
-            <p>1. Creating these files</p>
-            <p>2. Organizing these files</p>
-            <p>3. Hosting (serving) these files</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">What Are HTML, CSS, and JavaScript Files?</div>
-
-      <div class="text-smaller">
-        <p>&#149; Plain text files (they are not compressed; you can read them)</p>
-        <div class="fragment">
-          <p>&#149; Different file extensions:</p>
+<!--       <section class="hero condensed">
+        <h1>Hello</h1>
+        <div class="opening-instructions">
+          <p>1) Please download <a href="../materials/class08.zip" target="_blank">Class 08 Starter Code</a></p>
+          <p>2) Move the following into <code class="code">class-work</code>:</p>
           <div class="pad-left-lg">
-            <p>HTML => <code class="code">.html</code></p>
-            <p>CSS => <code class="code">.css</code></p>
-            <p>JavaScript => <code class="code">.js</code></p>
+            <p>&#149; <code class="code">dom_intro</code></p>
+            <p>&#149; <code class="code">list_maker</code></p>
+          </div>
+          <p>3) Solution from last week is included</p>
+        </div>
+      </section> -->
+
+      <section class="hero condensed">
+        <h1>Class <span class="red">#07</span></h1>
+<!--         <h1>03/05/2018</h1> -->
+        <h1 class="lesson-title">Document Object Model (DOM) and jQuery</h1>
+      </section>
+
+
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Agenda</div>
+        <p>&#149; <a href="#/questions">Questions/Feedback</a></p>
+        <p>&#149; <a href="#/dom">Document Object Model (DOM)</a></p>
+        <p>&#149; <a href="#/working-with-the-dom">Working with the DOM</a></p>
+        <p>&#149; <a href="#/jquery">jQuery</a></p>
+      </section>
+
+      <!-- QUESTIONS -->
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Questions</div>
+
+        <div class="text-smaller">
+          <p><b>Q: Does the AJAX call need to be placed at the bottom of the script?</b></p>
+          <p class="fragment">A: Nope! Due to their <u>asynchronous</u> nature, can be placed anywhere. <a href="https://blog.sessionstack.com/how-javascript-works-event-loop-and-the-rise-of-async-programming-5-ways-to-better-coding-with-2f077c4438b5" target="_blank">More info</a>.</p>
+        </div>
+      </section> -->
+
+      <section class="title">
+        <h1>Questions</h1>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading" id="questions">Questions</div>
+
+        <div class="text-smaller">
+          <p>
+            <b>Q:Any good suggestions for APIs we should start looking at for Final Projects? Are there any specific requirements for the final Project? </b>
+          </p>
+          <p class="fragment">
+            A: <code class="code">I've added some linkks to lessons section</code>
+          </p>
+          <p class="fragment">
+            <b>Q: Can you explain more on jsonObject?</b>
+          </p>
+          <p class="fragment">
+            A: <code class="code">We will continue work with JSON as we start making additional API calls in upcoming lessons. </code>
+          </p>
+          </p>
+        </div>
+      </section>
+
+      <!-- INTRO TO THE DOM -->
+      <section class="title" id="dom">
+        <h1>Document Object Model</h1>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">DOM: Intro</div>
+
+        <p>&#149; <b>DOM</b>: Document Object Model</p>
+        <p class="fragment">&#149; Connects HTML/CSS to JavaScripts</p>
+        <div class="fragment">
+          <p>&#149; "Map" of HTML nodes created by the browser</p>
+          <p>&#149; Nodes are objects that JS can access/manipulate</p>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">DOM: Intro</div>
+
+        <div class="text-smaller">
+          <p>&#149; Each browser parses HTML differently</p>
+          <p>&#149; Different browsers mean different DOM's</p>
+          <div class="fragment">
+            <p>&#149; Access the DOM using the <code class="code">document</code> object</p>
+            <p>&#149; To open your console: <code class="code">command</code> + <code class="code">option</code> + <code class="code">j</code></p>
+            <p>&#149; Explore nodes using the "Inspector" tool (or, the "Elements" tab)</p>
           </div>
         </div>
-        <p class="fragment">&#149; Text editors (like Sublime Text) allow <u>syntax highlighting</u>: assigns different colors to different types of code</p>
-      </div>
-    </section>
+      </section>
 
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">What Are HTML, CSS, and JavaScript?</div>
-      <div class="text-smaller">
-        <p><u>HTML</u></p>
-        <p class="fragment pad-left-lg">Content / Structure / Presentation</p>
-        <p><u>CSS</u></p>
-        <p class="fragment pad-left-lg">Style / Design</p>
-        <p><u>JavaScript</u></p>
-        <p class="fragment pad-left-lg">Behavior / Interaction</p>
-        <p><a href="http://codepen.io/josephjbliss/pen/MYXVXd" target="_blank">Example</a></p>
-      </div>
-    </section>
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">DOM: Intro</div>
 
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">Website Starter</div>
-
-      <p>&#149; <code class="code">website_starter</code> is included in the course materials</p>
-      <p>&#149; Use this as boilerplate to get started on your final project</p>
-
-    </section>
-
-    <!-- Google Maps API -->
-    <section class="title" id="google-maps-api">
-      <h1>Google Maps API</h1>
-    </section>
-
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">What is an API?</div>
-
-      <div class="text-smallest">
-        <p>&#149; API &rArr; Application Programming Interface</p>
-        <p class="fragment">&#149; Set of rules/instructions for interacting with a piece of software</p>
-        <p class="fragment">&#149; Middleman; allows different pieces of software to "talk" to each other</p>
-      </div>
-      <div class="text-center fragment">
-        <img src="img/class07/api.png" alt="">
-      </div>
-    </section>
-
-    <section class="center">
-      <h2>Let's Build a Map</h2>
-      <div class="text-left">
-        <p>&#149; <a target="_blank" href="https://developers.google.com/maps/documentation/javascript/tutorial">Google Maps JavaScript API V3 Documentation</a></p>
-        <p>&#149; Open <code class="code">citi_bike_google_maps</code> in Sublime Text</p>
-      </div>
-    </section>
-
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">Let's Build a Map</div>
-
-      <p>1. Obtain API Key</p>
-      <p>2. Add starter HTML and CSS</p>
-      <p>3. Enable map using JS</p>
-      <p>4. ???</p>
-      <p>5. Profit</p>
-    </section>
-
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">Google Maps: Changing the <code class="lower">center</code></div>
-
-      <p>Google Maps require:</p>
-      <p class="pad-left-lg">&rArr; <code class="code">center</code></p>
-      <p class="pad-left-lg">&rArr; <code class="code">zoom</code></p>
-
-      <p>Challenge: Change the <code class="code">center</code> of your map to NYC</p>
-      <p class="pad-left-lg fragment">&rArr; Hint: look up NYC's coordinates!</p>
-      <p class="pad-left-lg fragment">&rArr; 40.7127 N, 74.0059 W</p>
-    </section>
-
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">Google Maps: Adding Markers</div>
-
-      <p>&#149; Markers require:</p>
-      <div class="pad-left-lg">
-        <p>&rArr; <code class="code">position: {lat: y, lng: x}</code></p>
-        <p>&rArr; <code class="code">map</code></p>
-      </div>
-      <p>&#149; Challenge: use the following to add a marker at NYC</p>
-<pre><code>
-  var marker = new google.maps.Marker({
-    position: {lat: y, lng: x},
-    map: map,
-    title: 'New York, NY'
-  });
-
-</code></pre>
-    </section>
-
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">Google Maps: Multiple Markers</div>
-
-      <div class="text-smallest">
-        <p>&#149; Easiest way to add multiple markers:</p>
-<pre><code>
-  var marker1 = new google.maps.Marker({
-    position: {lat: 40, lng: 50},
-    map: map,
-  });
-
-  var marker2 = new google.maps.Marker({
-    position: {lat: 45, lng: 45},
-    map: map,
-  });
-
-  var marker3 = new google.maps.Marker({
-    position: {lat: 25, lng: 75},
-    map: map,
-  });
-
-  ...
-
-</code></pre>
-        <p class="fragment">&#149; Is this efficient? Say I want to add 100 markers? 1,000?</p>
-      </div>
-    </section>
-
-    <!-- CitiBike Lab -->
-    <section class="title" id="citi-bike-lab">
-      <h1>CitiBike Lab</h1>
-    </section>
-
-    <section class="center">
-      <img src="img/class07/citi_bike_map_example.png">
-    </section>
-
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">CitiBike Lab: Objectives</div>
-
-      <div class="text-smallest">
-        <p>1) Draw a full-page Google Map (done!)</p>
-        <p>2) Use <code class="code">$.ajax</code> to get CitiBike data (also done!)</p>
-        <p>3) Loop over CitiBike data</p>
-        <p>4) For each station, render a map maker using the stations latitude and longitude</p>
-        <p>5) Bonus: Include each station's <code class="code">bikes</code> and <code class="code">free</code> (spaces) in the marker title</p>
-      </div>
-    </section>
-
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">CitiBike Lab: Data Source</div>
-
-      <div class="text-smallest">
-        <p>&#149; This project uses the <a href="https://api.citybik.es/v2/" target="_blank">CitiBike API</a></p>
-        <div class="fragment">
-          <p>&#149; We will be fetching data for NYC's bike share</p>
-          <p>&#149; Our <b>endpoint</b>: <a href="https://api.citybik.es/citi-bike-nyc.json" target="_blank">https://api.citybik.es/citi-bike-nyc.json</a></p>
+        <div class="text-smaller">
+          <p>&#149; The DOM provides JS with an <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document">API</a> to interact with it</p>
+          <p class="fragment">&#149; Since the DOM is an object, we can get/set data!</p>
+          <div class="fragment">
+            <p>&#149; Two of the most useful methods relate to querying:</p>
+            <div class="pad-left-lg text-smaller">
+              <p><code class="code">Document.querySelector(String selector)</code></p>
+              <p><code class="code">Document.querySelectorAll(String selector)</code></p>
+            </div>
+            <p>&#149; Each returns an <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Element">element</a> (or group of) from the DOM</p>
+          </div>
         </div>
-        <div class="fragment">
-          <p>&#149; What is the <b>shape</b> of this data? (Array, Object, etc.)</p>
-          <p>&#149; What does this data contain?</p>
+      </section>
+
+      <!-- WORKING WITH THE DOM -->
+      <section class="title" id="working-with-the-dom">
+        <h1>Working with the DOM</h1>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Working with the DOM</div>
+
+        <div class="text-smaller">
+          <p>&#149; There are three ways to inject JavaScript into HTML:</p>
+          <div class="pad-left-lg">
+            <p>1) Inline Javascript</p>
+            <p>2) Embeded <code class="code">&lt;script&gt;</code> tags</p>
+            <p>3) Linked external scripts</p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">CitiBike Lab: Fetching Data</div>
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Working with the DOM</div>
 
-      <div class="text-smallest">
-        <p>&#149; Inside of <code class="code">script.js</code> you should see:</p>
+        <div class="text-smallest">
+          <p>&#149; Like inline CSS, JavaScript can be executed inline:</p>
 <pre><code>
-  $.ajax({
-    type: 'GET',
-    url: 'http://api.citybik.es/citi-bike-nyc.json',
-    success: renderCitiBikeMarkers,
-  });
+  &lt;p onclick="myFunction()"&gt;Click Me!&lt;/p&gt;
 
 </code></pre>
-        <p>&#149; This is an <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started" target="_blank">AJAX request</a> through <a href="http://api.jquery.com/jquery.ajax/" target="_blank">jQuery</a></p>
-        <p>&#149; We are using AJAX to make an <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank">XHR request</a> to CitiBike's API</p>
-        <p>&#149; We will cover this tool in detail in Unit 2</p>
-      </div>
-    </section>
+          <div class="fragment">
+            <p>&#149; Please avoid!</p>
+            <p>&#149; Separate presentation (HTML) from your logic (JS)</p>
+            <p>&#149; "Separation of concerns"</p>
+            <p>&#149; Easier to maintain the view and logic components</p>
+          </div>
+        </div>
+      </section>
 
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">CitiBike Lab: Instructions</div>
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Working with the DOM</div>
 
-      <div class="text-smaller">
-        <p>&#149; Only add code to the fuction <code class="code">renderCitiBikeMarkers</code></p>
-        <p>&#149; Use <code class="code">console.log(stations)</code> to see the CitiBike stations data</p>
-        <p>&#149; Use <code class="code">stations.forEach</code> to iterate over the stations data</p>
-        <p>&#149; For each <code class="code">station</code>, create a <code class="code">new</code> Google Maps marker using the station's latitute and longitude</p>
-        <p>&#149; Don't forget the bonus challenge!</p>
-      </div>
-    </section>
+        <div class="text-smallest">
+          <p>&#149; JS can also run between <code class="code">&lt;script&gt;</code> tags:</p>
+<pre><code>
+  &lt;p&gt;A really exciting paragraph&lt;/p&gt;
 
-    <!-- END/WRAPUP -->
-    <section class="center">
-      <img src="img/main/the-end.jpg">
-    </section>
+  &lt;script&gt;
+    var num = 5;
 
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">Homework</div>
+    function addTwo (number) {
+      return number + 2;
+    }
 
-      <p>1) Complete <code class="code">citi_bike_google_maps</code></p>
-      <p>2) Complete <code class="code">dog.js</code></p>
-    </section>
+    var newNum = addTwo(num);
+  &lt;/script&gt;
 
-    <section data-background="#FFF" class="text-left">
-      <div class="heading">What's On Deck</div>
-      <h4>Class #08 (of 20) - Intro to the DOM and jQuery</h4>
-      <div class="pad-left-lg">
-        <p>&#149; The Document Object Model (DOM)</p>
-        <p>&#149; DOM Manipulation</p>
-        <p>&#149; jQuery</p>
-      </div>
-    </section>
+</code></pre>
+          <div class="fragment">
+            <p>&#149; Has its uses: plugins and small widgets</p>
+            <p>&#149; Doesn't allow for reusability across multiple HTML pages</p>
+            <p>&#149; Cannot cache embeded (or inline) JS</p>
+          </div>
+        </div>
+      </section>
 
-    <section class="center">
-      <h1>EXIT TICKETS!</h1>
-    </section>
-   </div>
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Working with the DOM</div>
+
+        <div class="text-smallest">
+          <p>&#149; Best practice for injecting JS into HTML is <u>external</u> links</p>
+          <p>&#149; Use a <code class="code">&lt;script&gt;</code> tag with a <code class="code">src</code> attribute pointing to an external file</p>
+          <p>&#149; Ensure these tags are placed right before the closing <code class="code">&lt;/body&gt;</code></p>
+<pre><code>
+    // BELOW YOUR HTML!
+
+    &lt;script src="http://jquery.js"&gt;&lt;/script&gt;
+    &lt;script src="react.js"&gt;&lt;/script&gt;
+    &lt;script src="my_app.js"&gt;&lt;/script&gt;
+
+    // ABOVE THE CLOSING BODY TAG!
+  &lt;/body&gt;
+
+</code></pre>
+          <div class="fragment">
+            <p>&#149; Wait until the DOM loads before manipulating it!</p>
+            <p>&#149; Cannot access nodes the browser hasn't mapped</p>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Work with the DOM</div>
+
+        <div class="text-smallest">
+          <p>&#149; JavaScript can "listen" for certain <a href="https://developer.mozilla.org/en-US/docs/Web/Events" target="_blank">events</a></p>
+          <p>&#149; A common event: <code class="code">.onclick</code></p>
+          <p>&#149; Events capture related data in the first parameter, <code class="code">event</code></p>
+          <p>&#149; Assign these events to DOM nodes:</p>
+<pre><code>
+  var btn = document.getElementById('my-btn');
+
+  btn.onclick = function (event) {
+    alert('You clicked a button!');
+  }
+
+</code></pre>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Additional Methods</div>
+
+
+        <p>&#149; Some of the most useful methods:</p>
+          <div class="pad-left-lg text-smaller">
+            <p>&rArr; <code class="code">onclick</code></p>
+            <p>&rArr; <code class="code">value</code></p>
+            <p>&rArr; <code class="code">document.createElement</code></p>
+            <p>&rArr; <code class="code">innerHTML</code></p>
+            <p>&rArr; <code class="code">appendChild</code></p>
+          </div>
+
+      </section>
+
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">DOM: Recap</div>
+
+        <div class="text-smaller">
+          <p class="fragment"><b>Q: What is the DOM?</b></p>
+          <p class="fragment pad-left-lg text-smaller">A: Object representation of HTM/CSS created by the browser</p>
+          <p class="fragment"><b>Q: What is the name of the object we use to reference the DOM?</b></p>
+          <p class="fragment pad-left-lg text-smaller">A: <code class="code">document</code></p>
+          <p class="fragment"><b>Q: What is the best method of linking JS and HTML?</b></p>
+          <p class="fragment pad-left-lg text-smaller">A: External scripts - separation of concerns; reusability</p>
+          <p class="fragment"><b>Q: Why should scripts be placed at the end of the <code class="code">&lt;body&gt;</code>?</b></p>
+          <p class="fragment pad-left-lg text-smaller">A: DOM must be loaded before it can be manipulated</p>
+        </div>
+      </section>
+
+      <!-- DOM MANIPULATION LAB -->
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">DOM Lab: Part One - 30min</div>
+
+        <div class="text-smallest">
+          <p>&#149; <code class="code">Open</code> and <code class="code">Fork</code> the <a target="_" href="https://codepen.io/jkeohan/pen/rdgXdd?editors=0010">JS/jQuery - Add List Item - Starter</a> repl.</p>
+          <p>&#149; Complete Only <code class="code">"Part One"</code></p>
+        </div>
+      </section>
+
+      <!-- JQUERY -->
+      <section class="title" id="jquery">
+        <h1>jQuery</h1>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">jQuery: What is it?</div>
+
+        <div class="text-smallest">
+          <p>&#149; jQuery <u>IS</u> JavaScript (<a href="https://code.jquery.com/jquery-3.1.0.js" target="_blank">source code</a>)</p>
+          <div class="fragment">
+            <p>&#149; jQuery is a JavaScript library</p>
+            <p>&#149; Battle-tested code that increase the speed/stability of development</p>
+          </div>
+          <div class="fragment">
+            <p>&#149; Why reinvent the wheel? Use a library instead!</p>
+            <p>&#149; 1000's of JS libraries, and (for better, or worse) growing daily</p>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">jQuery: What is it?</div>
+
+        <div class="text-smallest">
+          <p>&#149; Released in 2006, currently v3, most widely-used JS library</p>
+          <p>&#149; Written by John Resig (lives in BK!)</p>
+          <p>&#149; jQuery's Motto: 'Write Less, Do More'</p>
+          <div class="fragment">
+            <p>&#149; Makes working with the DOM + some fn's, easier:</p>
+            <div class="pad-left-lg text-smaller">
+              <p>&rArr; HTML / CSS manipulation</p>
+              <p>&rArr; Event handling (click events)</p>
+              <p>&rArr; Ajax (...soon!)</p>
+            </div>
+            <p>&#149; Bonus: Covers JS's browser inconsistencies</p>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">jQuery: Why Use It?</div>
+
+        <div class="text-smallest">
+          <p>&#149; The DOM isn't the prettiest/robust API:</p>
+          <div class="pad-left-lg">
+            <p><code class="code">document.getElementById</code></p>
+            <p><code class="code">document.getElementsByClassName</code></p>
+            <p><code class="code">document.getElementsByTagName</code></p>
+          </div>
+          <div class="fragment">
+            <p>&#149; What if we wanted to query every other <code class="code">li</code> in a <code class="code">ul</code>?</p>
+            <div class="pad-left-lg">
+            <p class="fragment">
+              &rArr; <a href="http://codepen.io/josephjbliss/pen/uqdCw" target="_blank">Pure JavaScript</a>
+            </p>
+            <p class="fragment">
+              &rArr; <a href="http://codepen.io/josephjbliss/pen/jLtfC" target="_blank">jQuery</a>
+            </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">jQuery</div>
+
+        <div class="text-smaller">
+          <p>&#149; jQuery in three steps:</p>
+          <div class="pad-left-lg">
+            <p>1) Use jQuery's CSS selector to query HTML elements</p>
+            <p>2) Querying returns a jQuery object enclosing the original DOM node</p>
+            <p>3) Call jQuery methods on the object!</p>
+          </div>
+<pre><code>
+  // add a click event to an element
+  $('#add-item').click(addNewItem)
+
+  // append a child to an element
+  $('#list').append('&lt;li>' + newItem + '&lt;/li>')
+
+</code></pre>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">jQuery: CSS SELECTORS</div>
+
+        <div class="text-smallest">
+          <p>&#149; CSS selectors query HTML for certain elements</p>
+          <p>&#149; Similar to <code class="code">document.querySelector()</code></p>
+          <p>&#149; Use the same selectors you write in CSS!</p>
+          <div class="fragment">
+            <p>&#149; The <code class="code">$('x')</code> Function - Get all of the 'X'</p>
+<pre><code>
+  $('div') // select all &lt;div&gt;'s
+  $('h2') // select all &lt;h2&gt;'s
+  $('p a') // select all &lt;a&gt;'s inside of all &lt;p&gt;'s
+  $('p, a') // select all &lt;p&gt;'s and &lt;a&gt;'s
+
+</code></pre>
+            <p>&#149; The <code class="code">$('x')</code> function takes ANY CSS selector</p>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">jQuery: CSS Selectors</div>
+
+        <div class="text-smaller">
+          <p>Query ID's using the <code class="code">#</code> (hashtag):</p>
+<pre><code>
+  $('#someId')
+  $('#someId a')
+
+</code></pre>
+        <div class="fragment">
+          <p>Query Classes using the <code class="code">.</code> (period):</p>
+<pre><code>
+  $('.someClass')
+  $('.someClass a')
+
+</code></pre>
+            <p>&#149; Querying classes will return a list, <code class="code">[]</code>, of elements</p>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">jQuery: Implementing the Library</div>
+
+        <p>&#149; To use jQuery (or any library), we must link to it:</p>
+        <div class="pad-left-lg">
+          <p>&rArr; Download and link locally</p>
+          <p>&rArr; Link to a CDN</p>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">jQuery: Implementing the Library</div>
+
+        <div class="text-smallest">
+          <p><b>Option 1: Download and store jQuery locally</b></p>
+          <p>1. Download jQuery from <a href="http://jquery.com/download" target="_blank">http://jquery.com/download</a></p>
+          <p>2. Save the <code class="code">.js</code> file in your project's directory</p>
+          <p>3. Create a <code class="code">&lt;script&gt;</code> tag ABOVE any of your own JS files</p>
+          <p>3. Point the <code class="code">src</code> attribute to the the file</p>
+<pre><code>
+  // libs
+  &lt;script src="jquery.js">&lt;/script&gt;
+
+  // your files
+  &lt;script type="text/javascript" src="my_app.js">&lt;/script&gt;
+
+</code></pre>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">jQuery: Implementing the Library</div>
+
+        <div class="text-smallest">
+          <p><b>Option 2: Link to an external jQuery source (CDN)</b></p>
+          <p>1. Locate an externally hosted version of jQuery:</p>
+          <p class="pad-left-lg">&rArr; <a href="https://code.jquery.com/" target="_blank">https://code.jquery.com/</a></p>
+          <p>2. Create a <code class="code">&lt;script&gt;</code> tag ABOVE any of your own JS files</p>
+          <p>3. Point the <code class="code">src</code> attribute to the jQuery CDN</p>
+<pre><code>
+  // libs
+  &lt;script src="https://code.jquery.com/jquery-1.11.3.js">&lt;/script&gt;
+
+  // your files
+  &lt;script src="my_app.js">&lt;/script&gt;
+
+</code></pre>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">jQuery: Common Functions</div>
+
+        <div class="text-smallest">
+          <p>&#149; Maniuplate HTML:</p>
+<pre><code>
+  $('div').html('&lt;p>paragraph!&lt;/p>');
+
+</code></pre>
+          <p>&#149; Manipulate CSS:</p>
+<pre><code>
+  $('div').css('color', red);
+
+</code></pre>
+          <p>&#149; Get/Set <code class="cdoe">&lt;input&gt;</code> values:</p>
+<pre><code>
+  // Get
+  $('input').val()
+
+  // Set
+  $('input').val('hello, world!')
+
+</code></pre>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">jQuery: Common Functions</div>
+
+        <div class="text-smaller">
+          <p>&#149; Add Event Listeners:</p>
+<pre><code>
+  $('button').click(function (evt) {
+    // code here
+  })
+
+</code></pre>
+          <p>&#149; Append HTML</p>
+<pre><code>
+  var myValue = 'hello, world!';
+
+  $('div').append('&lt;div>' + myValue + '&lt;/div>')
+
+</code></pre>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">jQuery: Recap</div>
+
+        <div class="text-smaller">
+          <p><b>Q: Is jQuery is JavaScript?</b></p>
+          <p class="fragment text-smaller pad-left-lg">A: YES!</p>
+          <p class="fragment"><b>Q: jQuery makes it easier to work with the _____.</b></p>
+          <p class="fragment text-smaller pad-left-lg">A: DOM (and other common JS functions)</p>
+          <p class="fragment"><b>Q: jQuery must be placed above or below your JS</b></p>
+          <p class="fragment text-smaller pad-left-lg">A: Below! Need to load in dependencies first!</p>
+        </div>
+      </section>
+
+      <!-- JQUERY LAB -->
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">DOM Lab: Part Two - 30min</div>
+
+        <div class="text-smallest">
+          <p>&#149; <code class="code">Open</code> the <a target="_" href="https://codepen.io/jkeohan/pen/rdgXdd?editors=0010">JS/jQuery - Add List Item - Starter</a> repl.</p>
+          <p>&#149; Complete <code class="code">"Part Two"</code></p>
+          <p>&#149; Make sure you comment out your current code!</p>
+          <p>&#149; Will have to look up the following jQuery methods:</p>
+          <div class="pad-left-lg text-smaller">
+            <p>&rArr; <code class="code">click</code></p>
+            <p>&rArr; <code class="code">val</code></p>
+            <p>&rArr; <code class="code">append</code></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE END -->
+      <section class="center">
+        <img src="img/main/the-end.jpg">
+      </section>
+
+      <!-- ON DECK -->
+ <!--      <section data-background="#FFF" class="text-left">
+        <div class="heading">What's On Deck</div>
+        <h4>Class #08 (of 20) - jQuery Events and JS Templating </h4>
+        <div class="pad-left-lg">
+          <p>&#149; More jQuery Events!</p>
+          <p>&#149; Javascript Templating: <a href="http://handlebarsjs.com/" target="_blank">Handlebars.js</a></p>
+        </div>
+      </section> -->
+    </div>
   </div>
 
   <script src="js/head.min.js"></script>

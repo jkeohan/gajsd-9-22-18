@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JSD: Class 09</title>
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/general-assembly.css" id="theme">
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+  <link rel="stylesheet" href="css/zenburn.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+<!--       <section class="hero condensed">
+        <h1>Hello</h1>
+        <div class="opening-instructions">
+          <p>1) Please download <a href="../materials/class09.zip" target="_blank">Class 09 Starter Code</a></p>
+          <p>2) Move the following into <code class="code">homework</code>:</p>
+          <div class="pad-left-lg">
+            <p>&#149; <code class="code">citi_bike_templates</code></p>
+          </div>
+        </div>
+      </section> -->
+
+      <section class="hero condensed">
+        <h1>Class <span class="red">#08</span></h1>
+        <h1 class="lesson-title">jQuery (ctn)</h1>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Announcements</div>
+        <div class="pad-left-lg">
+          <p>&rArr; <a href="https://docs.google.com/spreadsheets/d/1tQdE3iWuNAAWdUqyYQfctzevWaQeX11JEX3LYvH_nRU/edit#gid=437767196">Office Hours Sign Up Sheet</a></p>
+      <!--     <p> &rArr; In Class Mini Project: Feedr on 4/26</p>
+          <ul class="pad-left-lg">
+            <li>DOM Manipulation Using jQuery</li>
+            <li>Primitive Data Types, Arrays, Objects, Functions, Constructor Functions</li>
+            <li>Making Several API Calls</li>
+          </ul> -->
+          <!-- <p>&rArr; Final class will consist of (optional) presentations</p> -->
+         <!--  <p>&rArr; First deliverable due March 19th: at least three ideas or <u>proven progress</u> on one idea</p> -->
+        </div>
+      </section>
+
+      <!-- AGENDA -->
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Agenda</div>
+        <p>&#149; <a href="#/events">Browser Events</a></p>
+        <p>&#149; <a href="#/html-manipulation">HTML Manipulation</a></p>
+
+      <!--   <p>&#149; <a href="#/js-templates">JavaScript Templates</a></p> -->
+      </section>
+
+      <!-- WARM UP -->
+      <section class="center">
+        <h1>Warm Up</h1>
+        <p><a href="https://codepen.io/jkeohan/pen/rrkmoK?editors=0010" target="_blank">CodePen Exercise</a></p>
+      </section>
+
+      <!-- Browser Events -->
+      <section class="title" id="events">
+        <h1>Browser Events</h1>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Browser Events</div>
+
+        <div class="text-smaller">
+          <p>&#149; Events (actions) that users perform in the browser:</p>
+          <div class="pad-left-lg text-smaller fragment">
+            <p>&rArr; click</p>
+            <p>&rArr; mouse over / mouse out</p>
+            <p>&rArr; key down / key up</p>
+            <p>&rArr; scroll</p>
+            <p>&rArr; form submit</p>
+          </div>
+          <p class="fragment">&#149; Generally occur "on" elements, but a few invole the <code class="code">window</code> object</p>
+          <div class="fragment">
+            <p>&#149; We can use JavaScript to catch and respond to events</p>
+            <p>&#149; <a href="http://eloquentjavascript.net/14_event.html" target="_blank">More event info</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+          <div class="heading">Feedr Browser Events</div>
+          <p>What events are happening on <a href="http://gafeedr.surge.sh/" target="_">Feedr?</a></p>
+          <p class="fragment">&rArr; Pick a partner - 30 sec</p>
+          <p class="fragment">&rArr; Spend 5 min and determine what kind of events are being triggered. </p>
+        </section>
+
+                <section data-background="#FFF" class="text-left">
+          <div class="heading">Browser Events: Categories</div>
+          <p>&#149; Mouse</p>
+          <div class="pad-left-lg text-smallest">
+            <p>&rArr; <code class="code">click</code></p>
+            <p>&rArr; <code class="code">dblclick</code></p>
+            <p>&rArr; <code class="code">mouseenter</code></p>
+            <p>&rArr; <code class="code">mouseleave</code></p>
+          </div>
+          <p>&#149; Keyboard</p>
+          <div class="pad-left-lg text-smallest">
+            <p>&rArr; <code class="code">keypress</code></p>
+            <p>&rArr; <code class="code">keydown</code></p>
+            <p>&rArr; <code class="code">keyup</code></p>
+          </div>
+        </section>
+
+        <section data-background="#FFF" class="text-left">
+          <div class="heading">Browser Events: Categories</div>
+          <p>&#149; Form</p>
+          <div class="pad-left-lg text-smallest">
+            <p>&rArr; <code class="code">submit</code></p>
+            <p>&rArr; <code class="code">change</code></p>
+            <p>&rArr; <code class="code">focus</code></p>
+            <p>&rArr; <code class="code">blur</code></p>
+          </div>
+          <p>&#149; Document/Window Events</p>
+          <div class="pad-left-lg text-smallest">
+            <p>&rArr; <code class="code">load</code></p>
+            <p>&rArr; <code class="code">resize</code><a href="https://codepen.io/jkeohan/pen/kkwNPJ?editors=0010" target="_"> - Demo</a></p>
+            <p>&rArr; <code class="code">scroll</code><a href="http://codepen.io/jkeohan/full/WwPNYy/" target="_"> - Demo</a></p>
+            <p>&rArr; <code class="code">unload</code></p>
+          </div>
+        </section>
+
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Handling Events with JavaScript</div>
+
+        <div class="text-smaller">
+          <p>1) Query the element you want to attach the event to:</p>
+<pre><code>
+  document.querySelector('#my-btn')
+
+</code></pre>
+          <div class="fragment">
+            <p>2) Attach the event handler of your choice</p>
+<pre><code>
+  document.querySelector('#my-btn').onclick
+
+</code></pre>
+          </div>
+          <div class="fragment">
+            <p>3) Set this equal to a function</p>
+<pre><code>
+  document.querySelector('#my-btn').onclick = function() {
+    // do something!
+  }
+
+</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Handling Events with jQuery</div>
+
+        <div class="pad-left-lg text-smaller">
+          <p>1) Use the jQuery selector to find the element to handle the event:</p>
+<pre><code>
+  $('#my-btn')
+
+</code></pre>
+    <p>2) Call the desired event method on the selected element:</p>
+<pre><code>
+  $('#my-btn').click()
+
+</code></pre>
+    <p>3) Pass the event a <u>callback</u> function</p>
+<pre><code>
+  $('#my-btn').click(function() {
+    // do something!
+  })
+
+</code></pre>
+        </div>
+      </section>
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Browser Events: Categories</div>
+
+        <p>&#149; Mouse</p>
+        <div class="pad-left-lg text-smallest">
+          <p>&rArr; <code class="code">click</code></p>
+          <p>&rArr; <code class="code">dblclick</code></p>
+          <p>&rArr; <code class="code">mouseenter</code> / <code class="code">mouseleave</code></p>
+        </div>
+        <p>&#149; Keyboard</p>
+        <div class="pad-left-lg text-smallest">
+          <p>&rArr; <code class="code">keypress</code></p>
+          <p>&rArr; <code class="code">keydown</code></p>
+          <p>&rArr; <code class="code">keyup</code></p>
+        </div>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Browser Events: Categories</div>
+
+        <p>&#149; Form</p>
+        <div class="pad-left-lg text-smallest">
+          <p>&rArr; <code class="code">submit</code></p>
+          <p>&rArr; <code class="code">change</code></p>
+          <p>&rArr; <code class="code">focus</code></p>
+          <p>&rArr; <code class="code">blur</code></p>
+        </div>
+        <p>&#149; Document/Window Events</p>
+        <div class="pad-left-lg text-smallest">
+          <p>&rArr; <code class="code">resize</code></p>
+          <p>&rArr; <code class="code">scroll</code></p>
+        </div>
+      </section> -->
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Browser Events: Multiple Events</div>
+
+        <p>&#149; Multiple events can be attached to the same element:</p>
+  <pre><code>
+  $('#my-box').mouseenter(function () {
+    $('#my-box').css('background', 'red')
+  })
+
+  $('#my-box').mouseleave(function () {
+    $('#my-box').css('background', 'blue')
+  })
+
+  </code></pre>
+        <p>&#149; <a href="https://codepen.io/jkeohan/pen/YLPgaP?editors=0010">Codepen Example</a></p>
+      </section>
+
+            <!-- LAB -->
+      <section class="title">
+        <h1>Lab: Color Switcher Part 1 - 15 min</h1>
+        <a target="_" href="https://codepen.io/jkeohan/pen/OOvZQb">Color Switcher</a>
+        <p>Add a click event to the circles that changes the background color of the body to the color currently assinged to the circle</p>
+        <p>Will ask for a volunteer(s) to share their code</p>
+        <ul>
+          <li>Complete Solution</li>
+          <li>One bottlenecked so we can work through it.</li>
+        </ul>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Browser Events: This</div>
+        <div class="text-smaller">
+          <p>&#149; <code class="code">$(this)</code> is useful for handling events on many elements of the same type</p>
+          <p>&#149; Refers to whatever element <u>caused</u> the event to trigger</p>
+          <p>&#149; JS's <code class="code">this</code> is wrapped with jQuery's <code class="code">$()</code></p>
+        </div>
+    <pre><code>
+    $('.my-list-item').click(function () {
+      $(this).addClass('active')
+    })
+
+    </code></pre>
+        <p>&#149; <a href="http://codepen.io/cheshireoctopus/pen/mELymG">Codepen Example</a></p>
+      </section>
+
+        <section class="title">
+        <h1>Lab: Color Switcher - 15 min</h1>
+        <a target="_" href="https://codepen.io/jkeohan/pen/OOvZQb">Color Switcher Part 2</a>
+        <p>Using the context of 'this' refactor the code so that only 1 click event is needed which listens to all circles. </p>
+       <p>Will ask for a volunteer(s) to share their code</p>
+        <ul>
+          <li>Complete Solution</li>
+          <li>One bottlenecked so we can work through it.</li>
+        </ul>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Browser Events</div>
+
+        <div class="text-smaller">
+          <p>&#149; Direct events are only attached to <u>existing</u> DOM elements</p>
+          <p>&#149; Elements created <u>after</u> page load handle events differently</p>
+          <div class="fragment">
+            <p>&#149; Instead of specific elements, listen for clicks on the <code class="code">document</code>:</p>
+<pre><code>
+  $(document).on('click', '.my-list-item', function () {
+    $(this).addClass('active')
+  })
+
+</code></pre>
+            <p>&#149; When the <code class="code">document</code> is clicked on, if the target element is of class <code class="code">.my-list-item</code>, run the function</p>
+          </div>
+      </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Events: Recap</div>
+
+        <div class="text-smallest">
+          <p><b>Q: Can we only attach one event handler to an HTML element?</b></p>
+          <p class="fragment pad-left-lg">A: No; can attach many!</p>
+          <p class="fragment"><b>Q: How can we identify which element cause an event to happen?</b></p>
+          <div class="fragment">
+            <p class="pad-left-lg">A: Using <code class="code">$(this)</code></p>
+<pre><code>
+  $('.my-elements').click(function() {
+    $(this).addClass('active')
+  })
+
+</code></pre>
+          </div>
+          <p class="fragment"><b>Q: How do we handle events on dynamically created elements?</b></p>
+          <div class="fragment">
+<pre><code>
+  $(document).on(event, selector, function)
+  $(document).on('click', '.my-els', function () {
+    // do something unique!
+  })
+
+</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- HTML Manipulation -->
+      <section class="title" id="html-manipulation">
+        <h1>HTML Manipulation</h1>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">HTML Manipulation</div>
+
+        <div class="text-smaller">
+          <p><code class="code">.append('content')</code></p>
+          <p class="pad-left-lg">&rArr; Insert content at the <b>END</b> of each element</p>
+<pre><code>
+    $('div').append('&lt;p>Appended paragraph&lt;/p>')
+
+</code></pre>
+          <div class="fragment">
+            <p><code class="code">.prepend('content')</code></p>
+            <p class="pad-left-lg">&rArr; Insert content at the <b>BEGINNING</b> of each element</p>
+<pre><code>
+    $('div').prepend('&lt;p>Prepended paragraph&lt;/p>')
+
+</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">HTML Manipulation</div>
+
+        <div class="text-smallest">
+          <p>&#149; Assuming the following HTML:</p>
+<pre><code>
+  &lt;div id="someDiv">
+    &lt;p>A paragrpah of text&lt;/p>
+  &lt;/div>
+
+</code></pre>
+          <p>&#149; The following JS:</p>
+<pre><code>
+  $('#someDiv').append('&lt;p>Appended paragraph&lt;/p>');
+  $('#someDiv').prepend('&lt;p>Prepended paragraph&lt;/p>');
+
+</code></pre>
+          <p>&#149; Will yield the following HTML:</p>
+<pre><code>
+  &lt;div id="someDiv">
+    &lt;p>Prepended paragraph&lt;/p>
+    &lt;p>A paragrpah of text&lt;/p>
+    &lt;p>Appened paragraph&lt;/p>
+  &lt;/div>
+
+</code></pre>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">HTML Manipulation</div>
+
+        <div class="text-smaller">
+          <p><code class="code">.remove()</code></p>
+          <p class="pad-left-lg">&rArr; Remove (delete) the selected element</p>
+<pre><code>
+    $('#someDiv').remove()
+
+</code></pre>
+          <p><code class="code">.empty()</code></p>
+          <p class="pad-left-lg">&rArr; Remove all content <b>INSIDE</b> an element</p>
+<pre><code>
+    $('#someDiv').empty()
+
+</code></pre>
+        </div>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">HTML Manipulation Lab - 25min</div>
+
+        <div class="text-smaller">
+          <p>&#149; <code class="code">Open</code> the <a href="https://codepen.io/jkeohan/pen/mMRYdp">JQUERY - TODO LIST - Complete/Delete - STARTER</a> repl.</p>
+          <p>&#149; Add ability to remove individaul list items when they are clicked on</p>
+          <p>&#149; You will need to use:</p>
+          <div class="pad-left-lg">
+            <p>&rArr; .parent()</p>
+            <p>&rArr; .children()</p>
+            <p>&rArr; .addClass()</p>
+          </div>
+        </div>
+       <p>Will ask for a volunteer(s) to share their code</p>
+        <ul>
+          <li>Complete Solution</li>
+          <li>One bottlenecked so we can work through it.</li>
+        </ul>
+      </section>
+
+      <!-- BREAK (5-7 mins) -->
+      <section class="center">
+        <h1>5 minute break</h1>
+        <img src="img/main/break-time-bear.jpg">
+      </section>
+
+      <!-- JAVASCRIPT TEMPLATING -->
+<!--       <section class="title" id="js-templates">
+        <h1>JavaScript Templates</h1>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">JavaScript Templates</div>
+
+        <div class="text-smaller">
+          <p>&#149; Open <code class="code">templates_intro</code> in Sublime Text</p>
+          <p>&#149; Use <code class="code">forEach</code> to iterate over <code class="code">ourClass</code> array</p>
+          <p>&#149; For each person, use <code class="code">.append()</code> to add HTML to <code class="code">#class-list</code>:</p>
+<pre><code>
+  &lt;h4>Name: Chandler&lt;/h4>
+  &lt;h6>Role: Instructor&lt;/h4>
+  &lt;hr/>
+
+</code></pre>
+          <p>&#149; Hint: you can "chain" the <code class="code">.append()</code> method to another <code class="code">.append():</code></p>
+<pre><code>
+  $('#class-list')
+    .append(...)
+    .append(...)
+    .append(...)
+
+</code></pre>
+        </div>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">JavaScript Templates</div>
+
+        <div class="text-smaller">
+          <p>&#149; Appnding HTML can be time-consuming and error-prone</p>
+          <p>&#149; While useful, <code class="code">.append()</code> has its limitations</p>
+<pre><code>
+  $('#class-list')
+    .append('&lt;h4>Name: ' + person.name + '&lt;/h4>')
+    .append('&lt;h6>Role: ' + person.role + '&lt;/h4>')
+    .append('&lt;hr/>')
+
+</code></pre>
+          <p>&#149; Adding a more complex HTML structure would be messy</p>
+          <p>&#149; This is where templating comes in handy</p>
+        </div>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">JavaScript Templates</div>
+
+        <div class="text-smaller">
+          <p>&#149; JS templates separate logic (JS) from presentation (HTML)</p>
+          <p class="fragment">&#149; Help avoid excessive DOM manipulation</p>
+          <p class="fragment">&#149; Consider using once you are <u>generating</u> HTML from your JS</p>
+          <p class="fragment">&#149; Data &rArr; Template &rArr; View</p>
+          <div class="fragment">
+            <p>&#149; A few templating libraries:</p>
+            <div class="pad-left-lg text-smaller">
+              <p>&rArr; <a href="http://handlebarsjs.com/" target="_blank">handlebars.js</a></p>
+              <p>&rArr; <a href="http://mustache.github.io/" target="_blank">mustache.js</a></p>
+              <p>&rArr; <a href="http://underscorejs.org/" target="_blank">underscore.js</a></p>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Handlebars.js</div>
+
+        <p>Handlebars.js has a four step process:</p>
+        <div class="pad-left-lg">
+          <p>1) Create the template structure</p>
+          <p>2) Compile the template</p>
+          <p>3) Pass the compiled template a JavaScript data structure</p>
+          <p>4) Append the template to the DOM</p>
+        </div>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Handlebars.js</div>
+
+        <div class="text-smaller">
+          <p>1) Create the template structure:</p>
+          <div class="text-smaller">
+            <p>&#149; Use <code class="code">&lt;script&gt;</code> tags to create the template</p>
+            <p>&#149; Must have <code class="code">id</code> and <code class="code">type="text/x-handlebars-template"</code></p>
+            <p>&#149; Write HTML inside the template, and surround dynamically generated data with <code class="code">{{}}</code></p>
+          </div>
+        </div>
+    <pre><code>
+    &lt;script id="person-template" type="text/x-handlebars-template"&gt;
+      &lt;h4&gt;Name: {{name}}&lt;/h4&gt;
+      &lt;h6&gt;Role: {{role}}&lt;/p&gt;
+      &lt;hr/&gt;
+    &lt;/script&gt;
+
+    </code></pre>
+      </section>
+ -->
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Handlebars.js</div>
+
+        <div class="text-smallest">
+        <p>2) Use jQuery to reference the newly created template and compile using <code class="code">Handlebars.compile()</code></p>
+    <pre><code>
+    var source = $('#person-template').html()
+    var template = Handlebars.compile(source)
+
+    </code></pre>
+        <p>3) Pass a data object to the newly created template...</p>
+        <p>4) ...and add it to the DOM via jQuery</p>
+    <pre><code>
+    var personObject = {
+      name: 'Chandler',
+      role: 'Instructor',
+    }
+
+    // 3
+    var personTemplate = template(personObject)
+
+    // 4
+    $('#person').append(personTemplate)
+
+    </code></pre>
+        </div>
+      </section> -->
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Handlebars.js</div>
+
+        <div class="text-smaller">
+          <p>&#149; Handlebars provides the <code class="code">#each</code> helper for array iteration</p>
+          <p>&#149; When iterating over an array, use <code class="code">{{this}}</code> to reference each element</p>
+
+<pre><code>
+    &lt;script id="person-template" type="text/x-handlebars-template"&gt;
+    {{#each this}}
+      &lt;h4&gt;Name: {{name}}&lt;/h4&gt;
+      &lt;h6&gt;Role: {{role}}&lt;/p&gt;
+      &lt;hr/&gt;
+    {{/each}}
+    &lt;/script&gt;
+
+</code></pre>
+        </div>
+      </section> -->
+
+      <!-- TEMPLATING LAB -->
+<!--       <section class="title">
+        <h1>Templating Lab</h1>
+      </section>
+
+      <section class="center">
+        <img src="img/class09/citi_bike_template_demo.png" alt="">
+      </section> -->
+
+ <!--      <section data-background="#FFF" class="text-left">
+        <div class="heading">Templating Lab</div>
+
+        <p>&#149; Open <code class="code">citi_bike_templates</code> in Sublime Text</p>
+        <p>&#149; Follow instructions in <code class="code">app.js</code></p>
+        <p>&#149; You do not need to write any CSS - see <code class="code">styles.css</code></p>
+      </section>
+ -->
+      <!-- THE END -->
+      <section class="center">
+        <img src="img/main/the-end.jpg">
+      </section>
+
+      <!-- HOMEWORK -->
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Homework</div>
+
+      <p>1) Complete <a href="https://codepen.io/jkeohan/pen/RjYVWm?editors=0010">CityPicker</a></p>
+
+      <p>2) Complete <a href="
+https://codepen.io/jkeohan/pen/dZmeQP?editors=0010">RGB Color Choice</a></p>
+    </section>
+
+
+  <!--   <section data-background="#FFF" class="text-left">
+      <div class="heading">Homework</div>
+
+      <p>1) Complete <code class="code">citi_bike_templates</code></p>
+    </section> -->
+
+      <!-- ON DECK -->
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">What's On Deck</div>
+
+        <h4>Class #10 (of 20) - AJAX and API's</h4>
+        <div class="pad-left-lg">
+          <p>&#149; Hypertext Transfer Protocol (HTTP)</p>
+          <p>&#149; Application Programming Interfaces (API's)</p>
+          <p>&#149; Asychronous JavaScript and XML (AJAX)</p>
+        </div>
+      </section> -->
+
+      <section class="center">
+        <h1>Exit Tickets!</h1>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="../js/analytics.js"></script>
+</body>
+</html>

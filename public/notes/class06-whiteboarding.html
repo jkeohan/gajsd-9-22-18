@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JSD: Class 08</title>
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/general-assembly.css" id="theme">
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+  <link rel="stylesheet" href="css/zenburn.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+<!--       <section class="hero condensed">
+        <h1>Hello</h1>
+        <div class="opening-instructions">
+          <p>1) Please download <a href="../materials/class08.zip" target="_blank">Class 08 Starter Code</a></p>
+          <p>2) Move the following into <code class="code">class-work</code>:</p>
+          <div class="pad-left-lg">
+            <p>&#149; <code class="code">dom_intro</code></p>
+            <p>&#149; <code class="code">list_maker</code></p>
+          </div>
+          <p>3) Solution from last week is included</p>
+        </div>
+      </section> -->
+
+      <section class="hero condensed">
+        <h1>Class <span class="red">#06</span></h1>
+<!--         <h1>03/05/2018</h1> -->
+        <h1 class="lesson-title">JSON Cont...& Whiteboarding and Algorithms</h1>
+      </section>
+
+<!--       <section data-background="#FFF" class="text-left">
+        <div class="heading">Announcements</div> -->
+
+ <!--        <p>&#149; Final Project</p> -->
+<!--         <div class="pad-left-lg">
+          <p>&rArr; <a href="https://docs.google.com/spreadsheets/d/1tQdE3iWuNAAWdUqyYQfctzevWaQeX11JEX3LYvH_nRU/edit#gid=437767196">Office Hours Sign Up Sheet</a></p>
+          <p> &rArr; In Class Mini Project: Feedr on 4/26</p>
+          <ul class="pad-left-lg">
+            <li>DOM Manipulation Using jQuery</li>
+            <li>Primitive Data Types, Arrays, Objects, Functions, Constructor Functions</li>
+            <li>Making Several API Calls</li>
+          </ul>
+        </div>
+      </section>  -->
+
+     <section data-background="#FFF" class="text-left">
+      <div class="heading">Agenda</div>
+      <p>&#149; <a href="#/questions">Questions\Feedback</a></p>
+      <p>&#149; <a href="#/hr">Homework Review</a></p>
+      <p>&#149; <a href="#/json">JSON Cont..</a></p>
+      <p>&#149; <a href="#/whiteboarding">Whiteboarding Techniques</a></p>
+    </section>
+
+
+      <section data-background="#FFF" class="text-left">
+         <div class="heading" id="questions">Questions\Feedback </div>
+<p class="fragment"><b>Questions...</b></p>
+        <div class="text-smaller pad-left-lg">
+          <p class="fragment">
+            <b>Q: Can you give examples of applications that use OOP and FP? Can an application use both?</b>
+          </p>
+          <p class="fragment pad-left-lg">
+            A: Yes an application can use both approaches and React is a great example of using OOP as components are classes. 
+          </p>
+          <p class="fragment">
+            <b>Q: Can you expect the idea of 'binding this' and when you need to do this?</b>
+          </p>
+          <p class="fragment pad-left-lg">
+            A: Binding is a concept that you will see over and over in React and is used configure a function to rebind to a new context of this.  
+            <p class="fragment pad-left-lg">Here is a <a  target="_" href="https://codepen.io/jkeohan/pen/rvjvKe?editors=0010">good example </a> of using React to bind this</p>
+          </p>
+          <p class="fragment">
+            <b>Q: How did you identify and array and/or object in JSON? </b>
+          </p>
+          <p class="fragment pad-left-lg">
+            A: We will review JSON shortly.
+          </p>
+        </div>
+        <p class="fragment">
+            <b>Q: Any good practice sites for OOP you could suggest? </b>
+          </p>
+          <p class="fragment text-smaller pad-left-lg">
+            A: Added a few links to some reading in the <a target="_" href="http://jsd716.surge.sh/pages/resources.html">Resources</a> section 
+          </p>
+      </section>
+
+      <section class="title" id="hr">
+        <h1>Homework Review</h1>
+      </section>
+
+
+        <section data-background="#FFF" class="text-left">
+        <div class="heading">Homework Review</div>
+
+        <p>JSON is....</p>
+        <div class="fragment text-smaller pad-left-lg">
+        <p>&rArr; <a target="_" href="https://codepen.io/jkeohan/pen/wxmyaY?editors=0010">TwoSum Starter</a></p>
+        <p>&rArr; <a target="_" href="https://repl.it/@jkeohan/JSD-JSON-Lab">Working with JSON</a></code></p>
+        </div>
+      </section>
+
+      <!-- INTRO TO THE DOM -->
+      <section class="title" id="json">
+        <h1>JSON Review</h1>
+      </section>
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">JSON Review</div>
+
+        <p>JSON is....</p>
+        <div class="fragment text-smaller pad-left-lg">
+        <p>&rArr; JSON is used as a data-exchange format between programs</p>
+        <p>&rArr; Property names must be double-quoted strings: <code class="code">"name"</code> vs <code class="code">name</code></p>
+           <p>&rArr; All strings must be double-quoted: <code class="code">"name"</code> vs <code class="code">'name'</code></p>
+        </div>
+      </section>
+
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">JSON: JavaScript's <code class="code">JSON</code> Object</div>
+
+      <div class="text-smallest">
+        <p class="fragment">&#149; Like the <code class="code">Math</code> object, JavaScript has a lib for working with JSON: <code class="code">JSON</code></p>
+        <div class="fragment">
+          <p>&#149; <code class="code">JSON.stringify()</code> &rArr; Transforms JavaScript to JSON</p>
+          <div class="pad-left-lg">
+<pre><code>
+  var jsonObject = JSON.stringify({ name: 'chandler' });
+  // "{"name":"chandler"}"
+
+  typeof jsonObject
+  // string
+
+</code></pre>
+          </div>
+        </div>
+        <div class="fragment">
+          <p>&#149; <code class="code">JSON.parse()</code> &rArr; Transforms JSON to JavaScript</p>
+          <div class="pad-left-lg">
+<pre><code>
+  var javaScriptObject = JSON.parse(jsonObject);
+  // { name: "chandler" }
+
+  typeof javaScriptObject
+  // "object"
+
+</code></pre>
+          </div>
+        </div>
+      </div>
+      
+      <p class="text-smallest fragment">&#149; Let's try importing and converting data using .parse() and .stringify() using: <a target="_" href="https://codepen.io/jkeohan/pen/zLJoKe?editors=0010">Citibike & Mashable JSON Data  - Starter</a></p>
+    </section>
+
+
+      <section class="title" id="whiteboarding">
+        <h1>Whiteboarding Techniques</h1>
+      </section>
+
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Whiteboarding Techniques</div>
+
+        <div class="text-smaller">
+          <p>&#149; We will use the following <a href="https://github.com/jkeohan/jsd-class-repo/tree/master/whiteboarding-fundamentals">readme file</a> for this section.</p>
+<!--           <p>&#149; Different browsers mean different DOM's</p>
+          <div class="fragment">
+            <p>&#149; Access the DOM using the <code class="code">document</code> object</p>
+            <p>&#149; To open your console: <code class="code">command</code> + <code class="code">option</code> + <code class="code">j</code></p>
+            <p>&#149; Explore nodes using the "Inspector" tool (or, the "Elements" tab)</p>
+          </div> -->
+        </div>
+      </section>
+
+
+
+      <!-- THE END -->
+      <section class="center">
+        <img src="img/main/the-end.jpg">
+      </section>
+
+      <!-- ON DECK -->
+ <!--      <section data-background="#FFF" class="text-left">
+        <div class="heading">What's On Deck</div>
+        <h4>Class #08 (of 20) - jQuery Events and JS Templating </h4>
+        <div class="pad-left-lg">
+          <p>&#149; More jQuery Events!</p>
+          <p>&#149; Javascript Templating: <a href="http://handlebarsjs.com/" target="_blank">Handlebars.js</a></p>
+        </div>
+      </section> -->
+    </div>
+  </div>
+
+  <script src="js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="../js/analytics.js"></script>
+</body>
+</html>

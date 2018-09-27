@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JSD: Class 05</title>
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/general-assembly.css" id="theme">
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+  <link rel="stylesheet" href="css/zenburn.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+<!--     <section class="hero condensed">
+      <h1>Hello</h1>
+      <div class="opening-instructions">
+        <p>1) Please download <a href="../materials/class06.zip" target="_blank">Class 06 Starter Code</a></p>
+        <p>2) Move the following into <code class="code">class-work</code>:</p>
+        <div class="pad-left-lg">
+          <p>&#149; <code class="code">dog.js</code></p>
+          <p>&#149; <code class="code">json_lab.js</code></p>
+        </div>
+        <p>3) Move the following into <code class="code">homework</code>:</p>
+        <div class="pad-left-lg">
+          <p>&#149; <code class="code">object_hw.js</code></p>
+        </div>
+        <p>4) Solutions from last week are included</p>
+      </div>
+    </section> -->
+
+    <section class="hero condensed">
+      <h1>Class <span class="red">#05</span></h1>
+      <h1 class="lesson-title">Objects and JSON</h1>
+    </section>
+
+<!--     <section data-background="#FFF" class="text-left">
+      <div class="heading">Announcements</div>
+      <p>&#149; Final Project:</p>
+      <div class="pad-left-lg">
+        <p>&rArr; Due in 7 weeks: Monday, April 16th</p>
+        <p>&rArr; Final class will consist of (optional) presentations</p>
+        <p>&rArr; First deliverable due March 19th: at least three ideas or <u>proven progress</u> on one idea</p>
+      </div>
+    </section> -->
+<!-- 
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Homework Review</div>
+
+      <div class="text-smallest">
+        <p>&#149; Strive for consistent indentation and spacing:</p>
+<pre><code>
+  function compare(userChoice, cpuChoice) {
+    if (userChoice===rock && cpuChoice=== paper) {
+        console.log ("CPU")
+    }
+    else if (userChoice === rock && cpuChoice === scisssors) {
+      console.log ("User")
+    } else if (userChoice=== paper && cpuChoice ===scissors ) {
+      console.log ("CPU")
+    }
+else if (userChoice === paper && cpuChoice === rock) {
+  console.log ("User won")
+}
+    // some code removed for slide
+}
+
+</code></pre>
+      </div>
+    </section>
+ -->
+<!--     <section class="center">
+      <h1>Warm Up</h1>
+      <p><a href="https://repl.it/@jkeohan/JSD-W03D06-Warmup-starter" target="_blank">JSD-W03D06-Warmup-starter</a></p>
+    </section> -->
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Agenda</div>
+      <p>&#149; <a href="#/questions">Questions\Feedback</a></p>
+      <p>&#149; <a href="#/functions">Functions Review</a></p>
+      <p>&#149; <a href="#/objects">Objects</a></p>
+      <p>&#149; <a href="#/oop">Object-Oriented Programming</a></p>
+      <p>&#149; <a href="#/constructors">Object Constructors</a></p>
+      <p>&#149; <a href="#/json">JavaScript Object Notation (JSON)</a></p>
+    </section>
+
+      <section data-background="#FFF" class="text-left">
+         <div class="heading" id="questions">Questions\Feedback - 5min</div>
+<p class="fragment"><b>Questions...</b></p>
+        <div class="text-smaller pad-left-lg">
+          <p class="fragment">
+            <b>Q: Can we see specific examples of why one would choose function expressions/declarations/fat arrows. Cost/benefit of each.</b>
+          </p>
+          <p class="fragment pad-left-lg">
+            A: There is no cost/benefit to using expressions, declaration or fat arrow functions.  They are user preference, however for readability it's more preferred to use function expressions.
+          </p>
+          <p class="fragment">
+            <b>Q: Are methods just functions without defining?</b>
+          </p>
+          <p class="fragment pad-left-lg">
+            A: Methods are functions that have been defined on an object. Something we will cover in depth today.
+          </p>
+          <p class="fragment">
+            <b>Q: Writing arrow functions is still a little confusing- can we go over the variations again next class (when to use curly braces, how they are different from regular functions)?</b>
+          </p>
+          <p class="fragment pad-left-lg">
+            A: That we will.
+          </p>
+        </div>
+         <p class="fragment"><b>Feedback...</b></p>
+        <!--   <div class="text-smaller pad-left-lg">
+              <p class="fragment"><b>Would love to spend some time using ternary operators. I've seen them used more in my work codebase than the class if/else.</b></p>
+              <p class="fragment pad-left-lg"><b>- </b> <code class="code ">I'll try to incorporate more ternary operators during our code alongs.</code> -->
+      </section>
+
+     <section class="title" id="functions">
+      <h1>Functions Review</h1>
+    </section>
+
+
+      <section data-background="#FFF" class="text-left">
+      <div class="heading">Functions in Practice - 20min</div>
+
+      <div class="text-smaller">
+        <p class="fragment">&#149; So far, we've explored the following:</p>
+        <div class="pad-left-lg text-smaller">
+          <p class="fragment">&rArr; <code class="code">Function Expressions:</code> let count = function(a,b) {return a + b}</p>
+          <p class="fragment">&rArr; <code class="code">Function Declarations:</code> function count(a,b) {return a + b}</p>
+          <p class="fragment">&rArr; <code class="code">Fat Arrow Functions:</code> let count = (a,b) => a + b</p>
+        </div>
+        <p class="fragment">&#149; Now lets create several solutions to the following <a href="https://codepen.io/jkeohan/pen/oqwwBZ?editors=0010">Color Scheme Switcher</a> that implement those concepts </p>
+      </div>
+    </section>
+
+    <!-- OBJECTS -->
+    <section class="title" id="objects">
+      <h1>Objects</h1>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Objects: Introduction</div>
+
+      <div class="text-smaller">
+        <p>&#149; So far, we've dealt with simple (primitive) data types:</p>
+        <div class="pad-left-lg fragment text-smaller">
+          <p>&rArr; <code class="code">String</code></p>
+          <p>&rArr; <code class="code">Number</code></p>
+          <p>&rArr; <code class="code">Boolean</code></p>
+        </div>
+        <p class="fragment">&#149; <code class="code">Array</code>: a list-like data-structure (note: complex)</p>
+        <p class="fragment">&#149; As applications grow more complex, need to leverage a more complex data-structure, the <code class="code">Object</code></p>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Objects: Introduction</div>
+
+      <div class="text-smallest">
+        <p>&#149; Objects are collections of related data and functions</p>
+<pre><code>
+  var person = {
+    name: 'Chandler',
+    age: 29,
+    favorites: ['JavaScript', 'beer', 'beach'],
+    speak: function () {
+      return 'Do your JavaScript homework!';
+    },
+  }
+
+</code></pre>
+        <div class="fragment">
+          <p>&#149; Object values (ex: <code class="code">name</code>) are called <b>properties</b></p>
+          <p>&#149; Object functions (ex: <code class="code">speak</code>) are called <b>methods</b></p>
+        </div>
+        <div class="fragment">
+          <p>&#149; Syntax follows a comma-separated, <b>key/value</b> pattern</p>
+
+        </div>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Objects: Introduction</div>
+
+      <div class="text-smallest">
+        <p>&#149; Fundamental programming paradigm for structuring applications</p>
+        <p>&#149; Often abstraction of tangible concept</p>
+        <p>&#149; Useful for compartmentalizing complex systems:</p>
+<pre><code>
+  var transactionOne = {
+    date: '02/25/2018',
+    amount: 10,
+    vendor: 'In-n-Out Burger',
+  }
+
+  var transactionTwo = {
+    date: '02/25/2018',
+    amount: 50,
+    vendor: 'Other Half Brewery',
+  }
+
+  var transactionThree = {
+    date: '02/26/2018',
+    amount: 125,
+    vendor: 'MTA',
+  }
+
+</code></pre>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Objects: Creation</div>
+
+      <div class="text-smaller">
+        <p>&#149; Object Literal:</p>
+<pre><code>
+  var person = {};
+
+</code></pre>
+        <p class="pad-left-lg text-smaller">&rArr; Useful for on-the-fly data stores</p>
+        <div class="fragment">
+          <p>&#149; Object Constructor:</p>
+<pre><code>
+  var person = new Object();
+
+</code></pre>
+          <p class="pad-left-lg text-smaller">&rArr; Useful for creating many instances of a particular type</p>
+        </div>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Objects: Read/Write Properties</div>
+
+      <div class="text-smaller">
+        <p>&#149; Use <u>dot-notation</u> or <u>bracket notation</u> to read/write propreties</p>
+<pre><code>
+  var person = {
+    name: 'Chandler'
+  };
+
+  // dot-notation
+  person.job = 'frontend engineer';
+
+  person.job
+  // "frontend engineer"
+
+  // bracket notation (useful if a property has a special character)
+  person['bad-habits'] = 'beer';
+
+  person['bad-habits'];
+  // "beer"
+
+</code></pre>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Objects: Recap</div>
+
+      <div class="text-smallest">
+        <p><b>Q: Objects are collections of _____:_____ pairs</b></p>
+        <div class="fragment">
+          <p class="pad-left-lg">A: <code class="code">key:value</code> pairs</p>
+<pre><code>
+  var person = {
+    name: 'Chandler',
+    age: 29,
+  }
+
+</code></pre>
+        </div>
+        <p class="fragment"><b>Q: Two methods of creating objects are: </b></p>
+        <div class="fragment">
+          <p class="pad-left-lg">A: The object literal and the object constructor</p>
+<pre><code>
+  var person = {};
+
+  var person = new Object();
+
+</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Objects: Recap</div>
+
+      <p><b>Q: To get and set object properties, we can use either:</b></p>
+      <div class="fragment">
+        <p class="pad-left-lg">A: <u>dot-notation</u> or <u>bracket-notation</u></p>
+<pre><code>
+  var person = {};
+
+  // set
+  person.name = 'Chandler';
+
+  // get
+  person.name
+  // "Chandler"
+
+</code></pre>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Objects: Property Iteration</div>
+
+      <div class="text-smaller">
+        <p class="text-smaller">&#149; Use <code class="code">for...in</code> loop to iterate through an object's enumerable properties</p>
+        <p class="text-smaller">&#149; <b>NOTE</b>: unlike arrays, objects do not maintain property order</p>
+        <div class="text-smaller">
+<pre><code>
+    var person = {
+      name: 'Chandler',
+      age: 29,
+    };
+
+    for (var key in person) {
+      console.log(key);
+      console.log(person[key]);
+    }
+
+    // name
+    // "Chandler"
+    // age
+    // 29
+
+</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Objects: Property Iteration</div>
+
+      <div class="text-smallest">
+        <p>&#149; Can also use <code class="code">Object.keys() or Object.values()</code> for property iteration:</p>
+<pre><code>
+  var person = {
+    name: 'Chandler',
+    age: 29,
+  };
+
+  Object.keys(person);
+  // ["name", "age"]
+
+  Object.keys(person).forEach(function (key) {
+    var value = person[key];
+    console.log(value)
+  })
+
+  // "Chandler"
+  // 29
+
+</code></pre>
+      </div>
+    </section>
+
+    <section class="title" id="oop">
+      <h1>Object-Oriented Programming</h1>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Object-Oriented Programming (OOP)</div>
+
+      <p>&#149; Programming is a tool for problem-solving</p>
+      <div class="fragment">
+        <p>&#149; Handful of approaches (programming paradigms):</p>
+        <div class="pad-left-lg">
+          <p>&rArr; Object-oriented (OOP)</p>
+          <p>&rArr; Functional (FP)</p>
+        </div>
+      </div>
+      <div class="fragment">
+        <p>&#149; JSD introduces both concepts without bias.</p>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Object-Oriented Prgramming (OOP)</div>
+
+      <div class="text-smallest">
+        <p>&#149; The fundamental unit is the <u>object</u></p>
+        <div class="fragment">
+        <p>&#149; Objects are combinations of data and methods (functions) to act upon this data</p>
+<pre><code>
+  var person = {
+    name: 'Chandler',
+    age: 29,
+    favorites: ['JavaScript', 'beer', 'beach'],
+    speak: function () {
+      return 'Do your JavaScript homework!';
+    }
+  }
+
+</code></pre>
+        </div>
+        <p class="fragment">&#149; Make it easier for programmers to visualize the program by tying it to concrete concepts</p>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Object-Oriented Prgramming (OOP)</div>
+
+      <div class="text-smaller">
+        <p>&#149; Use OOP to model the MTA</p>
+        <p>&#149; Identify likely objects, attributes, and methods</p>
+        <p>&#149; Some elements to consider:</p>
+        <div class="pad-left-lg">
+          <p>&rArr; Customers</p>
+          <p>&rArr; Stations</p>
+          <p>&rArr; Trains</p>
+          <p>&rArr; Lost tourists</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="title" id="constructors">
+      <h1>Object Constructors</h1>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Object Constructors</div>
+
+      <div class="text-smallest">
+        <p>&#149; Factories used to create many of the same type of object</p>
+        <div class="fragment">
+<pre><code>
+  // Object constructor
+  var Person = function(name) {
+    this.name = name;
+  };
+
+  // An instance of the Person constructor
+  var chandler = new Person('Chandler');
+  var keanu = new Person('Keanu');
+
+</code></pre>
+        </div>
+        <div class="fragment">
+          <p>&#149; By convention, use upper-cased names when defining constructors</p>
+          <p>&#149; Invoke the constructor with the <code class="code">new</code> keyword</p>
+          <p>&#149; <b>NOTE:</b> JS is a prototype-based language; there are no classes!</p>
+        </div>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Object Constructors</div>
+
+      <div class="text-smaller">
+        <p>&#149; Object constructors are used to set an object's properties:</p>
+<pre><code>
+  var Person = function(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  var chandler = new Person('Chandler', 29)
+
+</code></pre>
+
+        <div class="fragment">
+          <p>&#149; More reusable than creation via literal:</p>
+<pre><code>
+  var chandler = {
+    name: 'Chandler',
+    age: 29,
+  }
+
+</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Object Constructors: <code class="code lower">this</code></div>
+
+      <div class="text-smallest">
+        <p>&#149; <code class="code">this</code> is used to set a function's context</p>
+        <p>&#149; Inside the object constructor, <code class="code">this</code> refers to the <u>current</u> object instance</p>
+        <div class="fragment">
+          <p>&#149; Must use <code class="code">this</code> when referring to the object using methods:</p>
+<pre><code>
+  var Person = function (name) {
+    this.name = name;
+    this.sayName = function () {
+      console.log(this.name);
+    }
+  }
+
+  var chandler = new Person('chandler');
+  chandler.sayName();
+  // "chandler"
+
+</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Objects: Recap</div>
+
+      <div class="text-smallest">
+        <p><b>Q: Is there only one programming paradigm?</b></p>
+        <p class="fragment text-smaller pad-left-lg">NO! Many: OOP, functional, imperative</p>
+        <div class="fragment">
+          <p><b>Q: In OOP, objects contain:</b></p>
+          <p class="fragment text-smaller pad-left-lg">A: Data (properties) and methods (functions) to act upon this data</p>
+        </div>
+        <div class="fragment">
+          <p><b>Q: The object constructor allows us to</b></p>
+          <p class="fragment text-smaller pad-left-lg">A: Use a function to create many of the same type of object</p>
+        </div>
+        <div class="fragment">
+          <p><b>Q: The concept of <code class="code">this</code> refers to</b></p>
+          <p class="fragment text-smaller pad-left-lg">A: Whatever object is in context (invoked the function)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OBJECTS LAB -->
+    <section class="center">
+      <h1>Objects Lab - 15min</h1>
+      <p>Open <a target="_" href="https://repl.it/@jkeohan/JSD-Constructor-Lab-Dogs">Constructor Labs Repl</a> and follow the directions to create a dog constructor.</p>
+    </section>
+
+    <!-- JSON -->
+    <section class="title" id="json">
+      <h1>JavaScript Object Notation (JSON)</h1>
+    </section>
+<!-- 
+    <section class="center">
+      <img src="img/class01/dns.png" alt="">
+    </section> -->
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">JSON: What is it?</div>
+
+      <div class="text-smaller">
+        <p>&#149; <b>JSON</b>: JavaScript Object Notation</p>
+        <p class="fragment">&#149; JSON !== JavaScript</p>
+        <p class="fragment">&#149; Text-based data format that is based on JS</p>
+        <p class="fragment">&#149; JSON is <u>language-independent</u>; Ruby, Python, etc. can all parse/generate JSON</p>
+        <p class="fragment">&#149; Successor to XML (ew)</p>
+        <p class="fragment">&#149; Easy for humans to read; easy for machines to parse</p>
+        <p class="fragment">&#149; Specified by <a href="https://github.com/douglascrockford/JSON-js" target="_blank">Douglas Crockford</a></p>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">JSON: What's it used for?</div>
+
+      <div class="text-smaller">
+        <p>&#149; JSON is used as a data-exchange format between programs</p>
+        <p>&#149; Ex: sending data from the frontend (JavaScript), to a Python-powered backend, and vice-versa</p>
+        <div class="fragment">
+        <p>&#149; Has strict conventions (unlike JS):</p>
+          <div class="pad-left-lg text-smaller">
+            <p>&rArr; Property names must be double-quoted strings: <code class="code">"name"</code> vs <code class="code">name</code></p>
+            <p>&rArr; All strings must be double-quoted: <code class="code">"name"</code> vs <code class="code">'name'</code></p>
+            <p>&rArr; No in-line comments</p>
+            <p>&rArr; Trailing commas are forbidden</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Tools to Work with JSON</div>
+
+      <div class="text-smaller">
+        <p>&#149; Here are a few tools to work with JSON</p>
+        <div>
+          <div class="pad-left-lg text-smaller">
+            <p class="fragment">&rArr; <a target="_" href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en">JSON Formatter Chrome Extension</a></p>
+            <p class="fragment">&rArr; <a target="_blank" href="https://jsonlint.com/">JSONLint</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">JSON: JavaScript's <code class="code">JSON</code> Object</div>
+
+      <div class="text-smallest">
+        <p class="fragment">&#149; Like the <code class="code">Math</code> object, JavaScript has a lib for working with JSON: <code class="code">JSON</code></p>
+        <div class="fragment">
+          <p>&#149; <code class="code">JSON.stringify()</code> &rArr; Transforms JavaScript to JSON</p>
+          <div class="pad-left-lg">
+<pre><code>
+  var jsonObject = JSON.stringify({ name: 'chandler' });
+  // "{"name":"chandler"}"
+
+  typeof jsonObject
+  // string
+
+</code></pre>
+          </div>
+        </div>
+        <div class="fragment">
+          <p>&#149; <code class="code">JSON.parse()</code> &rArr; Transforms JSON to JavaScript</p>
+          <div class="pad-left-lg">
+<pre><code>
+  var javaScriptObject = JSON.parse(jsonObject);
+  // { name: "chandler" }
+
+  typeof javaScriptObject
+  // "object"
+
+</code></pre>
+          </div>
+        </div>
+      </div>
+      
+      <p class="text-smallest fragment">&#149; Let's try importing and converting data using .parse() and .stringify() using: <a href="https://codepen.io/jkeohan/pen/RQPEox?editors=0010">D3 - Scatterplot - Importing Data - Starter</a></p>
+    </section>
+
+    <section class="center">
+      <h1>JSON LAB - 20min</h1>
+      <p>Open <a  target="_" href="https://repl.it/@jkeohan/JSD-JSON-Lab">JSON Lab Repl</code> and follow the instructions.</a></p>
+    </section>
+
+    <!-- THE END -->
+    <section class="center">
+      <img src="img/main/the-end.jpg">
+    </section>
+
+    <!-- HOMEWORK -->
+<!--     <section data-background="#FFF" class="text-left">
+      <div class="heading">Homework</div>
+
+      <p>1) Complete <code class="code">object_hw.js</code></p>
+    </section> -->
+
+    <!-- ON DECK -->
+<!--     <section data-background="#FFF" class="text-left">
+      <div class="heading">What's On Deck</div>
+      <h4>Class #07 (of 20) - Project One</h4>
+      <div class="pad-left-lg">
+        <p>&#149; HTML/CSS/JS Overview</p>
+        <p>&#149; Slackbot</p>
+      </div>
+    </section> -->
+
+    <section class="center">
+      <h1>Exit Tickets!</h1>
+    </section>
+   </div>
+  </div>
+
+  <script src="js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="../js/analytics.js"></script>
+</body>
+</html>

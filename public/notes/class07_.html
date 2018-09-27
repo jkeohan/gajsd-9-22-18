@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JSD: Class 07</title>
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/general-assembly.css" id="theme">
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+  <link rel="stylesheet" href="css/zenburn.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+    <section class="hero condensed">
+      <h1>Hello</h1>
+      <div class="opening-instructions">
+        <p>1) Please download <a href="../materials/class07.zip" target="_blank">Class 07 Starter Code</a></p>
+        <p>2) Move the following into <code class="code">homework</code>:</p>
+        <div class="pad-left-lg">
+          <p>&#149; <code class="code">citi_bike_google_maps</code></p>
+        </div>
+        <p>3) <code class="code">website_starter</code> has been included</p>
+      </div>
+    </section>
+
+    <section class="hero condensed">
+      <h1>Class <span class="red">#07</span></h1>
+<!--       <h1>02/28/2018</h1> -->
+      <h1 class="lesson-title">Project One</h1>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Agenda</div>
+      <p>&#149; <a href="#/html-css-overview">HTML/CSS Overview</a></p>
+      <p>&#149; <a href="#/google-maps-api">Google Maps API</a></p>
+      <p>&#149; <a href="#/citi-bike-lab">CitiBike Lab</a></p>
+    </section>
+
+    <section class="center">
+      <h1>Object Review</h1>
+      <a href="https://repl.it/@cheshireoctopus/JSD-Class-07-Objects-Warmup" target="_blank">https://repl.it/@cheshireoctopus/JSD-Class-07-Objects-Warmup</a>
+    </section>
+
+    <!-- HTML/CSS Overview -->
+    <section class="title" id="html-css-overview">
+      <h1>HTML/CSS Overview</h1>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">How the Internet Works</div>
+      <div class="text-center">
+        <img src="img/class01/dns.png">
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">How the Internet Works</div>
+
+      <div class="text-smallest">
+        <p>&#149; Websites are really just collections of files:</p>
+        <div class="pad-left-lg text-smallest">
+          <p>&rArr; HTML</p>
+          <p>&rArr; CSS</p>
+          <p>&rArr; JavaScript</p>
+        </div>
+        <p class="fragment">&#149; Hosted on specialized computers &rArr; <b>servers</b></p>
+        <div class="fragment">
+          <p>&#149; Web development is the processes of:</p>
+          <div class="pad-left-lg text-smallest">
+            <p>1. Creating these files</p>
+            <p>2. Organizing these files</p>
+            <p>3. Hosting (serving) these files</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">What Are HTML, CSS, and JavaScript Files?</div>
+
+      <div class="text-smaller">
+        <p>&#149; Plain text files (they are not compressed; you can read them)</p>
+        <div class="fragment">
+          <p>&#149; Different file extensions:</p>
+          <div class="pad-left-lg">
+            <p>HTML => <code class="code">.html</code></p>
+            <p>CSS => <code class="code">.css</code></p>
+            <p>JavaScript => <code class="code">.js</code></p>
+          </div>
+        </div>
+        <p class="fragment">&#149; Text editors (like Sublime Text) allow <u>syntax highlighting</u>: assigns different colors to different types of code</p>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">What Are HTML, CSS, and JavaScript?</div>
+      <div class="text-smaller">
+        <p><u>HTML</u></p>
+        <p class="fragment pad-left-lg">Content / Structure / Presentation</p>
+        <p><u>CSS</u></p>
+        <p class="fragment pad-left-lg">Style / Design</p>
+        <p><u>JavaScript</u></p>
+        <p class="fragment pad-left-lg">Behavior / Interaction</p>
+        <p><a href="http://codepen.io/josephjbliss/pen/MYXVXd" target="_blank">Example</a></p>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Website Starter</div>
+
+      <p>&#149; <code class="code">website_starter</code> is included in the course materials</p>
+      <p>&#149; Use this as boilerplate to get started on your final project</p>
+
+    </section>
+
+    <!-- Google Maps API -->
+    <section class="title" id="google-maps-api">
+      <h1>Google Maps API</h1>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">What is an API?</div>
+
+      <div class="text-smallest">
+        <p>&#149; API &rArr; Application Programming Interface</p>
+        <p class="fragment">&#149; Set of rules/instructions for interacting with a piece of software</p>
+        <p class="fragment">&#149; Middleman; allows different pieces of software to "talk" to each other</p>
+      </div>
+      <div class="text-center fragment">
+        <img src="img/class07/api.png" alt="">
+      </div>
+    </section>
+
+    <section class="center">
+      <h2>Let's Build a Map</h2>
+      <div class="text-left">
+        <p>&#149; <a target="_blank" href="https://developers.google.com/maps/documentation/javascript/tutorial">Google Maps JavaScript API V3 Documentation</a></p>
+        <p>&#149; Open <code class="code">citi_bike_google_maps</code> in Sublime Text</p>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Let's Build a Map</div>
+
+      <p>1. Obtain API Key</p>
+      <p>2. Add starter HTML and CSS</p>
+      <p>3. Enable map using JS</p>
+      <p>4. ???</p>
+      <p>5. Profit</p>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Google Maps: Changing the <code class="lower">center</code></div>
+
+      <p>Google Maps require:</p>
+      <p class="pad-left-lg">&rArr; <code class="code">center</code></p>
+      <p class="pad-left-lg">&rArr; <code class="code">zoom</code></p>
+
+      <p>Challenge: Change the <code class="code">center</code> of your map to NYC</p>
+      <p class="pad-left-lg fragment">&rArr; Hint: look up NYC's coordinates!</p>
+      <p class="pad-left-lg fragment">&rArr; 40.7127 N, 74.0059 W</p>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Google Maps: Adding Markers</div>
+
+      <p>&#149; Markers require:</p>
+      <div class="pad-left-lg">
+        <p>&rArr; <code class="code">position: {lat: y, lng: x}</code></p>
+        <p>&rArr; <code class="code">map</code></p>
+      </div>
+      <p>&#149; Challenge: use the following to add a marker at NYC</p>
+<pre><code>
+  var marker = new google.maps.Marker({
+    position: {lat: y, lng: x},
+    map: map,
+    title: 'New York, NY'
+  });
+
+</code></pre>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Google Maps: Multiple Markers</div>
+
+      <div class="text-smallest">
+        <p>&#149; Easiest way to add multiple markers:</p>
+<pre><code>
+  var marker1 = new google.maps.Marker({
+    position: {lat: 40, lng: 50},
+    map: map,
+  });
+
+  var marker2 = new google.maps.Marker({
+    position: {lat: 45, lng: 45},
+    map: map,
+  });
+
+  var marker3 = new google.maps.Marker({
+    position: {lat: 25, lng: 75},
+    map: map,
+  });
+
+  ...
+
+</code></pre>
+        <p class="fragment">&#149; Is this efficient? Say I want to add 100 markers? 1,000?</p>
+      </div>
+    </section>
+
+    <!-- CitiBike Lab -->
+    <section class="title" id="citi-bike-lab">
+      <h1>CitiBike Lab</h1>
+    </section>
+
+    <section class="center">
+      <img src="img/class07/citi_bike_map_example.png">
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">CitiBike Lab: Objectives</div>
+
+      <div class="text-smallest">
+        <p>1) Draw a full-page Google Map (done!)</p>
+        <p>2) Use <code class="code">$.ajax</code> to get CitiBike data (also done!)</p>
+        <p>3) Loop over CitiBike data</p>
+        <p>4) For each station, render a map maker using the stations latitude and longitude</p>
+        <p>5) Bonus: Include each station's <code class="code">bikes</code> and <code class="code">free</code> (spaces) in the marker title</p>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">CitiBike Lab: Data Source</div>
+
+      <div class="text-smallest">
+        <p>&#149; This project uses the <a href="https://api.citybik.es/v2/" target="_blank">CitiBike API</a></p>
+        <div class="fragment">
+          <p>&#149; We will be fetching data for NYC's bike share</p>
+          <p>&#149; Our <b>endpoint</b>: <a href="https://api.citybik.es/citi-bike-nyc.json" target="_blank">https://api.citybik.es/citi-bike-nyc.json</a></p>
+        </div>
+        <div class="fragment">
+          <p>&#149; What is the <b>shape</b> of this data? (Array, Object, etc.)</p>
+          <p>&#149; What does this data contain?</p>
+        </div>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">CitiBike Lab: Fetching Data</div>
+
+      <div class="text-smallest">
+        <p>&#149; Inside of <code class="code">script.js</code> you should see:</p>
+<pre><code>
+  $.ajax({
+    type: 'GET',
+    url: 'http://api.citybik.es/citi-bike-nyc.json',
+    success: renderCitiBikeMarkers,
+  });
+
+</code></pre>
+        <p>&#149; This is an <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started" target="_blank">AJAX request</a> through <a href="http://api.jquery.com/jquery.ajax/" target="_blank">jQuery</a></p>
+        <p>&#149; We are using AJAX to make an <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank">XHR request</a> to CitiBike's API</p>
+        <p>&#149; We will cover this tool in detail in Unit 2</p>
+      </div>
+    </section>
+
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">CitiBike Lab: Instructions</div>
+
+      <div class="text-smaller">
+        <p>&#149; Only add code to the fuction <code class="code">renderCitiBikeMarkers</code></p>
+        <p>&#149; Use <code class="code">console.log(stations)</code> to see the CitiBike stations data</p>
+        <p>&#149; Use <code class="code">stations.forEach</code> to iterate over the stations data</p>
+        <p>&#149; For each <code class="code">station</code>, create a <code class="code">new</code> Google Maps marker using the station's latitute and longitude</p>
+        <p>&#149; Don't forget the bonus challenge!</p>
+      </div>
+    </section>
+
+    <!-- END/WRAPUP -->
+    <section class="center">
+      <img src="img/main/the-end.jpg">
+    </section>
+<!-- 
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">Homework</div>
+
+      <p>1) Complete <code class="code">citi_bike_google_maps</code></p>
+      <p>2) Complete <code class="code">dog.js</code></p>
+    </section>
+ -->
+    <section data-background="#FFF" class="text-left">
+      <div class="heading">What's On Deck</div>
+      <h4>Class #08 (of 20) - Intro to the DOM and jQuery</h4>
+      <div class="pad-left-lg">
+        <p>&#149; The Document Object Model (DOM)</p>
+        <p>&#149; DOM Manipulation</p>
+        <p>&#149; jQuery</p>
+      </div>
+    </section>
+
+    <section class="center">
+      <h1>EXIT TICKETS!</h1>
+    </section>
+   </div>
+  </div>
+
+  <script src="js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="../js/analytics.js"></script>
+</body>
+</html>

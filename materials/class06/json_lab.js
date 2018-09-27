@@ -11,9 +11,9 @@
 // [ Step 1 ]
 // Although the following line isn't technically JSON (since it's actual JavaScript code)
 // the object that's being saved inside `notActuallyJSON` is written in valid JSON syntax.
-var notActuallyJSON = {
-  "someKey": "someValue",
-  "innerArray": [
+let notActuallyJSON = {
+  someKey: "someValue",
+  innerArray: [
     "alpha",
     "beta",
     "gamma",
@@ -30,7 +30,7 @@ var notActuallyJSON = {
 // Use JSONLint to validate the object in the following line; then, edit the object so it passes the validator.
 // There are a total of three errors.
 //
-var eddie = {name:"Eddie Vedder", age:49,};
+let eddie = {name:"Eddie Vedder", age:49,};
 
 // [ Step 3 ]
 // We frequently want to turn a JavaScript object into a JSON string, and vice versa.
@@ -41,7 +41,7 @@ var eddie = {name:"Eddie Vedder", age:49,};
 //
 // Turn the `grungeAlbums` JavaScript object into a JSON string, and store it in `grungeAlbumsJSON`.
 
-var grungeAlbums = {
+let grungeAlbums = {
   "albums":[
     {
         "name": "Bleach",

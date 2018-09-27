@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>JSD: Class 04</title>
+  <title>JSD: Class 03</title>
   <link rel="stylesheet" href="css/reveal.css">
   <link rel="stylesheet" href="css/general-assembly.css" id="theme">
   <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
@@ -12,7 +12,7 @@
 <body>
   <div class="reveal">
     <div class="slides">
-      <section class="hero">
+<!--       <section class="hero">
         <h1>HELLO</h1>
 
         <div class="opening-instructions">
@@ -27,11 +27,11 @@
             <p>&#149; <code class="code">fizzbuzz.js</code></p>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <section class="hero condensed">
-        <h1>Class <span class="red">#04</span></h1>
-        <h1>02/14/2018</h1>
+        <h1>Class <span class="red">#03</span></h1>
+  <!--       <h1>02/14/2018</h1> -->
         <h1 class="lesson-title">Conditionals and Loops</h1>
       </section>
 
@@ -39,68 +39,61 @@
         <div class="heading">Agenda</div>
 
         <div class="text-smaller">
-          <p>&#149; <a href="#/string">Strings</a></p>
+   <!--        <p>&#149; <a href="#/string">Strings</a></p> -->
+          <p>&#149; <a href="#/questions">Questions\Feedback</a></p>
+          <p>&#149; <a href="#/arrayloops">Finish Array Loops</a></p>
           <p>&#149; <a href="#/conditional-statements">Conditional statements</a></p>
           <p>&#149; <a href="#/logical-operators">Logical operators</a></p>
           <p>&#149; <a href="#/truthy-falsy-values">Truthy and falsy values</a></p>
           <p>&#149; <a href="#/boolean-logic">Boolean logic</a></p>
           <p>&#149; <a href="#/loops">Loops: <code class="code">for</code> and <code class="code">while</code></a></p>
-          <p>&#149; Lab</p>
+<!--           <p>&#149; Lab</p> -->
         </div>
       </section>
 
-      <!-- STRINGS -->
-      <section class="title" id="strings">
-        <h1>Strings</h1>
-      </section>
+      <section data-background="#FFF" class="text-left">
+          <div class="heading" id="questions">Questions\Feedback - 5min</div>
+          <p class="fragment"><b>Questions...</b></p>
+          <div class="text-smallest">
+          <p class="fragment"><b>Q: Not sure about the $ in the string part?</b></p>
+            <p class="fragment pad-left-lg">A: This is part of string interpolation syntax.</p>
+            <p class="fragment"><b>Q: What are the major changes that ES6 brought vs. previous things in Javascript?</b></p>
+            <p class="fragment pad-left-lg">A: Things like...Deconstruction, Spread/Rest, Fat Arrow, Symbols, Set, Map...and many more </p>
+            
+          </div>
+            <p class="fragment"><b>Feedback...</b></p>
+            <div class="text-smallest">
+              <p class="fragment pad-left-lg">&#149; Not enough time working through Arrays to complete original homework assignment in it's entirety</p>
+               <p class="fragment pad-left-lg">&#149; We spent a lot of time on strings, would have loved to spend more time on array loops.</p>
+            </div>
+
+            <p class="fragment"><b>Homework Recap</b></p>
+            <div class="text-smallest">
+              <p class="fragment pad-left-lg">&#149; I only asked that steps 1-4 of Arrays Lab be completed for HW but certainly encouraged everyone to do tackle the bonus questions and several of you did just that.</p>
+              <p class="fragment pad-left-lg">&#149; Provide some feedback about reading chapter 1 of "You Don't Know JS"? </p>
+               
+            </div>
+        </section>
 
       <section data-background="#FFF" class="text-left">
-        <div class="heading">String Concatenation</div>
-
-        <p class="text-smaller">&#149; JS allows us to combine strings with variables, numbers, and other strings using the <code class="code">+</code> operator:</p>
-<pre class="fragment"><code>
-  > 'cat' + 'dog'
-  // 'catdog'
-
-  > 5 + ' cats'
-  // '5 cats'
-
-  var animalOne= 'cats'
-  var animalTwo = 'dogs'
-
-  > 'i like ' + animalOne + ' and ' + animalTwo
-  // 'i like cats and dogs'
-
-</code></pre>
-      </section>
-
-      <section data-background="#FFF" class="text-left">
-        <div class="heading">String Helper Methods</div>
-
-        <div class="text-smallest">
-          <p>&#149; Use <code class="code">[index]</code> to access a particular index of a string</p>
-          <p class="pad-left-lg text-smallest">
-            &rArr; <code class="code">'javascript'[0]</code>
-          </p>
-          <div class="fragment">
-            <p>&#149; <code class="code">.toLowerCase()</code> will return a string with all lower-case letters</p>
-            <p class="pad-left-lg text-smallest">
-              &rArr; <code class="code">'JAVASCRIPT'.toLowerCase()</code>
-            </p>
-          </div>
-          <div class="fragment">
-            <p>&#149; <code class="code">.toUpperCase()</code> will return a string with all upper-case letters</p>
-            <p class="pad-left-lg text-smallest">
-              &rArr; <code class="code">'javascript'.toUpperCase()</code>
-            </p>
-          </div>
-          <div class="fragment">
-            <p>&#149; <code class="code">.substring(x, y)</code> returns characters of a string between two indices</p>
-            <p class="pad-left-lg text-smallest">
-              &rArr; <code class="code">'JavaScript'.substr(0, 4)</code>
-            </p>
-          </div>
+        <div class="heading">Review - 5min</div>
+        <div>
+        <p class="fragment">&#149; Let's try to recall all the array methods and properties learned in the last class. </p>
         </div>
+      </section>
+
+
+      <section data-background="#FFF" class="text-left">
+        <div class="heading">Exercise - 15min</div>
+        <div>
+          <p class="fragment">&#149; Open and fork the following repl: <a target="_" href="https://repl.it/@jkeohan/JSD-Array-Basics-Warm-Up">Array Basics - Warm Up</a></p>
+        
+          
+        </div>
+      </section>
+
+    <section class="title" id="arrayloops">
+        <h1>Array Looping Methods Cont...</h1>
       </section>
 
       <!-- CONDITIONAL STATEMENTS -->
@@ -629,10 +622,10 @@
       </section>
 
       <section data-background="#FFF" class="text-left">
-        <div class="heading">Conditionals Lab</div>
+        <div class="heading">Conditionals Lab - 15min</div>
 
         <div class="text-smallest">
-          <p>&#149; Open <code class="code">conditionals_lab.js</code></p>
+          <p>&#149; Open the following CodePen <a target="_" href="https://codepen.io/jkeohan/pen/ZxqKRx?editors=0010">Condition Lab </a></p>
           <p>&#149; Complete the function so that it prints the proper response for a given <code class="code">age</code></p>
         </div>
         <div class="text-smallest pad-left-lg">
@@ -646,10 +639,10 @@
       </section>
 
       <!-- BREAK (5-7 mins) -->
-      <section class="center">
+   <!--    <section class="center">
         <h1>5 minute break</h1>
         <img src="img/main/break-time-bear.jpg">
-      </section>
+      </section> -->
 
       <!-- LOOPS -->
       <section class="title" id="loops">
@@ -805,10 +798,10 @@
       </section>
 
       <section data-background="#FFF" class="text-left">
-        <div class="heading">Lab: Fizz Buzz</div>
+        <div class="heading">Lab: Fizz Buzz - 15min</div>
 
         <div class="text-smallest">
-          <p>&#149; Open <code class="code">fizzbuzz.js</code>; we are building the infamous <a href="http://c2.com/cgi/wiki?FizzBuzzTest" target="_blank">Fizz Buzz</a> challenge</p>
+          <p>&#149; Open the following CodePen <a href="https://codepen.io/jkeohan/pen/KoGmBX?editors=0010">FizzBuzz - Lab</a></p>
           <p>&#149; Your program should:</p>
           <div class="pad-left-lg">
             <p>1) Use a <code class="code">for</code> loop to print the numbers 1 - 100</p>
@@ -829,7 +822,7 @@
       </section>
 
       <!-- HOMEWORK -->
-      <section data-background="#FFF" class="text-left">
+<!--       <section data-background="#FFF" class="text-left">
         <div class="heading">Homework</div>
 
         <p>1) Complete <code class="code">fizzbuzz.js</code></p>
@@ -838,12 +831,12 @@
           <p>&#149; Write a script that prints the lyrics to "99 Bottles of Beer on the Wall" in the terminal (<a href="http://www.99-bottles-of-beer.net/lyrics.html" target="_blank">lyrics</a>).</p>
           <p>&#149; Make sure your program can handle both singular and plural cases (i.e. both "99 bottles of beer" and "1 bottle of beer").</p>
         </div>
-      </section>
+      </section> -->
 
       <section data-background="#FFF" class="text-left">
         <div class="heading">What's On Deck</div>
 
-        <h4>Class #05 (of 20) - Functions and Scope</h4>
+        <h4>Class #04 (of 20) - Functions and Scope</h4>
         <div class="pad-left-lg">
           <p>&rArr; Functions</p>
           <p>&rArr; Function parameters</p>
